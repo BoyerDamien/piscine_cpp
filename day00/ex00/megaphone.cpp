@@ -4,9 +4,9 @@
 #include <string>
 
 std::string ft_toupper(std::string str) {
-  std::string ret = "";
-  for (size_t i = 0; i < str.length(); i++) {
-    ret.push_back(std::toupper(str[i]));
+  std::string ret;
+  for (auto c : str) {
+    ret.push_back(std::toupper(c));
   }
   return (ret);
 }
@@ -18,11 +18,12 @@ std::string ft_str_trim(std::string str, char c) {
 }
 
 int main(int argc, char *argv[]) {
+  std::string output;
+
   if (argc == 1) {
     std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
   } else {
-    std::string output = "";
-    for (int i = 0; i < argc; i++) {
+    for (int i = 1; i < argc; i++) {
       output += ft_str_trim(ft_toupper(argv[i]), ' ');
       if (i < argc - 1)
         output += " ";
