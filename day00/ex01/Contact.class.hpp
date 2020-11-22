@@ -18,16 +18,14 @@ private:
   std::string _darkest_secret;
 
 public:
-  bool set_email(const char *);
-  bool set_phone_number(const char *);
-  bool set_birthday_date(const char *);
-  void set_attribute(void);
+  void set_attributes(void);
+  struct s_field *get_fields(void);
 };
 
 typedef struct s_field {
   const char *input_message;
   const char *validation;
-  std::string Contact::*attribute;
+  std::string *attribute;
 } t_field;
 
 #endif
