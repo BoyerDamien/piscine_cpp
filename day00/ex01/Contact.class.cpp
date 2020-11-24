@@ -39,7 +39,9 @@ void Contact::set_attributes(void) {
                                          "([0-9]{2}\\.){4}[0-9]{2}");
   this->_email_address = this->_readInput(
       "Email (example@test.com)", "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
-  this->_postal_address = this->_readInput("Postal address", ".*");
+  this->_postal_address =
+      this->_readInput("Postal address (1 rue exemple, 75000 Test)",
+                       "([0-9]{1,4} [a-zA-Z0-9- é]+), [0-9]{5} ([A-Z][a-z]+)");
   this->_darkest_secret = this->_readInput("Darkest secret", ".*");
   this->_favorite_meal = this->_readInput("Favorite meal", ".*");
   this->_underwear_color = this->_readInput("Underwear color", "[a-zA-Z ]+");

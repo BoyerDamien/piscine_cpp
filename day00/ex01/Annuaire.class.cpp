@@ -19,8 +19,7 @@ void Annuaire::addContact(void) {
   if (this->_contact_index < 8 && this->_contact_index >= 0) {
     this->_contacts[this->_contact_index++].set_attributes();
   } else {
-    this->_contact_index = 7;
-    this->_contacts[this->_contact_index].set_attributes();
+    this->_contacts[this->_contact_index - 1].set_attributes();
   }
 }
 
