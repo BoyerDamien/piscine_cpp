@@ -1,6 +1,6 @@
 NAME = megaphone
 
-CC = clang++
+CXX = clang++
 
 CFLAGS = -Wall -Wextra -Werror -O3 -std=c++98
 
@@ -13,7 +13,7 @@ RM = rm -rf
 all     :	$(NAME)
 
 $(NAME) :	$(OBJS)
-	${CC} ${CFLAGS} -o ${NAME} ${OBJS}
+	${CXX} ${CFLAGS} -o ${NAME} ${OBJS}
 
 clean   :
 	$(RM) $(OBJS)
