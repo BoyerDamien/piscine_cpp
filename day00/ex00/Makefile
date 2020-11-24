@@ -2,7 +2,7 @@ NAME = megaphone
 
 CC = clang++
 
-CFLAGS = -Wall -Wextra -Werror -O3
+CFLAGS = -Wall -Wextra -Werror -O3 -std=c++98
 
 SRCS = megaphone.cpp
 
@@ -25,3 +25,5 @@ re      :	fclean all
 
 run: all
 	./${NAME}
+	./${NAME} "ceci est un test"
+	./${NAME} ceci est un second test

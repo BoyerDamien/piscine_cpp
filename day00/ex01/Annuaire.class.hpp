@@ -6,15 +6,19 @@
 class Annuaire {
 
 private:
-  Contact _contacts[4];
+  Contact _contacts[8];
   int _contact_index;
 
-  std::string _prompt(void) const;
-  bool _check_command(std::string);
+  bool _checkCommand(std::string);
+  void _showContacts(void) const;
+  std::string _readInput(const char *) const;
+  bool _checkInput(const char *, const char *) const;
 
 public:
   int run(void);
-  void append(Contact);
+  void addContact(void);
+  void searchContact(void) const;
+  void showAttribute(Contact, std::string) const;
 };
 
 #endif

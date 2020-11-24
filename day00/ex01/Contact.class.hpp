@@ -1,6 +1,7 @@
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 #include <iostream>
+#include <string>
 
 class Contact {
 
@@ -16,16 +17,13 @@ private:
   std::string _favorite_meal;
   std::string _underwear_color;
   std::string _darkest_secret;
+  bool _checkInput(const char *, const char *) const;
+  std::string _readInput(const char *, const char *) const;
+  std::string _truncate(std::string) const;
 
 public:
   void set_attributes(void);
-  struct s_field *get_fields(void);
+  void show(void) const;
+  std::string get(std::string) const;
 };
-
-typedef struct s_field {
-  const char *input_message;
-  const char *validation;
-  std::string *attribute;
-} t_field;
-
 #endif

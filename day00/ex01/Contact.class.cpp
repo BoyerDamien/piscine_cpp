@@ -1,53 +1,81 @@
 #include "./Contact.class.hpp"
+#include <cstddef>
 #include <iostream>
 #include <regex>
 #include <string>
 
-bool check_input(const char *input, const char *re) {
+bool Contact::_checkInput(const char *input, const char *re) const {
   std::regex r(re);
   std::cmatch m;
   return (std::regex_match(input, m, r));
 }
 
-void set_one_attribute(t_field field) {
+std::string Contact::_readInput(const char *message, const char *re) const {
   std::string input;
-  std::cout << field.input_message << ": ";
+  std::cout << message << ": ";
   std::getline(std::cin, input);
-  if (check_input(input.c_str(), field.validation)) {
-    *field.attribute = input;
+  size_t first = input.find_first_not_of(" ");
+  size_t last = input.find_last_not_of(" ");
+  input = input.substr(first, (last - first + 1));
+  if (this->_checkInput(input.c_str(), re)) {
+    return (input);
   } else {
     std::cerr << "Erreur: { " << input << " } est au mauvais format"
               << std::endl
               << std::endl;
-    set_one_attribute(field);
+    std::cin.clear();
+    return (this->_readInput(message, re));
   }
-}
-
-t_field *Contact::get_fields(void) {
-  static t_field fields[] = {
-      {"Veuillez entrer un nom", "[a-zA-Z- ]+", &this->_first_name},
-      {"Veuillez entrer un prénom", "[a-zA-Z- ]+", &this->_last_name},
-      {"Veuillez entrer un surnom", "[a-zA-Z- ]+", &this->_nickname},
-      {"Veuillez entrer une date de naissance (jj/mm/aaaa)",
-       "[0-9]{2}/[0-9]{2}/[0-9]{4}", &this->_birthday_date},
-      {"Veuillez entrer un login", "[0-9a-zA-Z- _]+", &this->_login},
-      {"Veuillez entrer un numéro de téléphone (xx.xx.xx.xx.xx)",
-       "([0-9]{2}\\.){4}[0-9]{2}", &this->_phone_number},
-      {"Veuillez entrer un email", "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$",
-       &this->_email_address},
-      {"Veuillez entrer son plus sombre secret", ".*", &this->_darkest_secret},
-      {"Veuillez entrer son repas favori", ".*", &this->_favorite_meal},
-      {"Veuillez entrer la couleur de ses sous-vêtements", "[a-zA-Z ]+",
-       &this->_underwear_color}
-
-  };
-  return (fields);
 }
 
 void Contact::set_attributes(void) {
-  std::string input;
-  t_field *fields = this->get_fields();
-  for (int i = 0; i < 10; i++) {
-    set_one_attribute(fields[i]);
+  this->_first_name = this->_readInput("First Name", "[a-zA-Z- ]+");
+  this->_last_name = this->_readInput("Last Name", "[a-zA-Z- ]+");
+  this->_nickname = this->_readInput("Nickname", "[a-zA-Z- ]+");
+  this->_login = this->_readInput("Login", "[0-9a-zA-Z- _]+");
+  this->_birthday_date = this->_readInput("Birthday Date (jj/mm/aaaa)",
+                                          "[0-9]{2}/[0-9]{2}/[0-9]{4}");
+  this->_phone_number = this->_readInput("Phone Number (xx.xx.xx.xx.xx)",
+                                         "([0-9]{2}\\.){4}[0-9]{2}");
+  this->_email_address = this->_readInput(
+      "Email (example@test.com)", "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
+  this->_postal_address = this->_readInput("Postal address", ".*");
+  this->_darkest_secret = this->_readInput("Darkest secret", ".*");
+  this->_favorite_meal = this->_readInput("Favorite meal", ".*");
+  this->_underwear_color = this->_readInput("Underwear color", "[a-zA-Z ]+");
+}
+
+std::string Contact::_truncate(std::string str) const {
+  if (str.length() > 10) {
+    return str.substr(0, 9) + ".";
   }
+  return str;
+}
+
+std::string Contact::get(std::string str) const {
+  if (str.compare("first_name") == 0) {
+    return (this->_truncate(this->_first_name));
+  } else if (str.compare("last_name") == 0) {
+    return (this->_truncate(this->_last_name));
+  } else if (str.compare("nickname") == 0) {
+    return (this->_truncate(this->_nickname));
+  }
+  return str;
+}
+
+void showOneAttribute(const char *name, std::string attribute) {
+  std::cout << name << ": " << attribute << std::endl;
+}
+
+void Contact::show(void) const {
+  showOneAttribute("First name", this->_first_name);
+  showOneAttribute("Last name", this->_last_name);
+  showOneAttribute("Nick name", this->_nickname);
+  showOneAttribute("Login", this->_login);
+  showOneAttribute("Birthday date", this->_birthday_date);
+  showOneAttribute("Phone number", this->_phone_number);
+  showOneAttribute("Email", this->_email_address);
+  showOneAttribute("Postal Address", this->_postal_address);
+  showOneAttribute("Darkest secret", this->_darkest_secret);
+  showOneAttribute("Favorite meal", this->_favorite_meal);
 }
