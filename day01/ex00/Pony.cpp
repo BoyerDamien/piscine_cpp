@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Pony.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/25 12:26:28 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/25 12:26:32 by dboyer           ###   ########.fr       */
+/*   Created: 2020/11/24 15:42:10 by dboyer            #+#    #+#             */
+/*   Updated: 2020/11/24 16:25:35 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./Annuaire.class.hpp"
-#include "./Contact.class.hpp"
-#include <string>
+#include "./Pony.hpp"
 
-int main(int argc, char **argv) {
-  Annuaire app = Annuaire();
-  return (app.run());
-  return (0);
+Pony::Pony(std::string name) : _name(name) {
+  std::cout << "The pony " << name << " was created " << std::endl;
+}
+
+Pony::~Pony() {
+  std::cout << "The pony " << this->_name << " was destroyed " << std::endl;
+}
+
+void Pony::announce(void) const {
+  std::cout << "Hello i'm the pony " << this->_name << std::endl;
 }

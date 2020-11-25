@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/25 12:26:28 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/25 12:26:32 by dboyer           ###   ########.fr       */
+/*   Created: 2020/11/24 18:11:46 by dboyer            #+#    #+#             */
+/*   Updated: 2020/11/24 18:50:36 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef ZOMBIE_HPP
+#define ZOMBIE_HPP
 
-#include "./Annuaire.class.hpp"
-#include "./Contact.class.hpp"
-#include <string>
+#include <iostream>
 
-int main(int argc, char **argv) {
-  Annuaire app = Annuaire();
-  return (app.run());
-  return (0);
-}
+class Zombie {
+
+private:
+  std::string _name;
+  int _type;
+
+public:
+  void advert(void) const;
+  Zombie(std::string, int);
+  void announce(void) const;
+};
+
+#endif

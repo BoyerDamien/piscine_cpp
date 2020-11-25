@@ -1,21 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/25 12:26:28 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/25 12:26:32 by dboyer           ###   ########.fr       */
+/*   Created: 2020/11/24 18:24:51 by dboyer            #+#    #+#             */
+/*   Updated: 2020/11/25 11:48:54 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef ZOMBIE_EVENT_HPP
+#define ZOMBIE_EVENT_HPP
 
-#include "./Annuaire.class.hpp"
-#include "./Contact.class.hpp"
-#include <string>
+#include "./Zombie.hpp"
+#include <iostream>
 
-int main(int argc, char **argv) {
-  Annuaire app = Annuaire();
-  return (app.run());
-  return (0);
-}
+class ZombieEvent {
+
+private:
+  int _type;
+  int _randomNumber(const int begin, const int end) const;
+
+public:
+  void setZombieType(int);
+  Zombie *newZombie(std::string name) const;
+  std::string randomString(size_t length) const;
+};
+
+#endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.class.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/25 12:25:51 by dboyer            #+#    #+#             */
+/*   Updated: 2020/11/25 12:25:57 by dboyer           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./Contact.class.hpp"
 #include <cstddef>
 #include <iostream>
@@ -16,7 +28,8 @@ std::string Contact::_readInput(const char *message, const char *re) const {
   std::getline(std::cin, input);
   size_t first = input.find_first_not_of(" ");
   size_t last = input.find_last_not_of(" ");
-  input = input.substr(first, (last - first + 1));
+  if (input.length() > 0)
+    input = input.substr(first, (last - first + 1));
   if (this->_checkInput(input.c_str(), re)) {
     return (input);
   } else {

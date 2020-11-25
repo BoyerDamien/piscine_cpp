@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Annuaire.class.cpp                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/25 12:26:01 by dboyer            #+#    #+#             */
+/*   Updated: 2020/11/25 12:26:04 by dboyer           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "./Annuaire.class.hpp"
 #include "Contact.class.hpp"
 #include <cstddef>
@@ -12,7 +24,9 @@ std::string Annuaire::_readInput(const char *message) const {
   std::getline(std::cin, line);
   size_t first = line.find_first_not_of(" ");
   size_t last = line.find_last_not_of(" ");
-  return (line.substr(first, (last - first + 1)));
+  if (line.length() > 0)
+    return (line.substr(first, (last - first + 1)));
+  return line;
 }
 
 void Annuaire::addContact(void) {
