@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 18:24:51 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/25 12:59:13 by dboyer           ###   ########.fr       */
+/*   Created: 2020/11/26 10:43:29 by dboyer            #+#    #+#             */
+/*   Updated: 2020/11/26 10:48:19 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef ZOMBIE_EVENT_HPP
-#define ZOMBIE_EVENT_HPP
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
-#include "./Zombie.hpp"
 #include <iostream>
+#include <string>
 
-class ZombieEvent {
+class Weapon {
 
 private:
-  int _type;
-  int _randomNumber(const int begin, const int end) const;
+  std::string _type;
 
 public:
-  ZombieEvent(int);
-  ~ZombieEvent();
-
-  void setZombieType(int);
-  Zombie *newZombie(std::string name) const;
-  Zombie randomChump(void) const;
-  std::string _randomString(size_t length) const;
+  Weapon(const std::string);
+  ~Weapon();
+  const std::string &getType(void) const;
+  void setType(const std::string);
 };
 
 #endif

@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 18:24:51 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/25 12:59:13 by dboyer           ###   ########.fr       */
+/*   Created: 2020/11/26 09:23:05 by dboyer            #+#    #+#             */
+/*   Updated: 2020/11/26 09:55:23 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef ZOMBIE_EVENT_HPP
-#define ZOMBIE_EVENT_HPP
 
-#include "./Zombie.hpp"
-#include <iostream>
+#include "./Brain.hpp"
 
-class ZombieEvent {
+Brain::Brain(void) { std::cout << "A brain was created" << std::endl; }
 
-private:
-  int _type;
-  int _randomNumber(const int begin, const int end) const;
+Brain::~Brain() { std::cout << "A brain was destroyed" << std::endl; }
 
-public:
-  ZombieEvent(int);
-  ~ZombieEvent();
-
-  void setZombieType(int);
-  Zombie *newZombie(std::string name) const;
-  Zombie randomChump(void) const;
-  std::string _randomString(size_t length) const;
-};
-
-#endif
+void *Brain::identify(void) const { return (void *)this; }

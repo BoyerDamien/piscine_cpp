@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 18:24:51 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/25 12:59:13 by dboyer           ###   ########.fr       */
+/*   Created: 2020/11/25 13:16:31 by dboyer            #+#    #+#             */
+/*   Updated: 2020/11/25 14:05:59 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef ZOMBIE_EVENT_HPP
-#define ZOMBIE_EVENT_HPP
 
+#ifndef ZOMBIEHORDE_HPP
+#define ZOMBIEHORDE_HPP
 #include "./Zombie.hpp"
+#include <bits/c++config.h>
+#include <cstddef>
 #include <iostream>
+#include <string>
 
-class ZombieEvent {
+class ZombieHorde {
 
 private:
-  int _type;
-  int _randomNumber(const int begin, const int end) const;
+  size_t _n;
+  Zombie **_horde;
+  Zombie *_newZombie(void) const;
+  int _randomNumber(const int, const int) const;
+  std::string _randomString(size_t) const;
 
 public:
-  ZombieEvent(int);
-  ~ZombieEvent();
+  ZombieHorde(size_t);
+  ~ZombieHorde();
 
-  void setZombieType(int);
-  Zombie *newZombie(std::string name) const;
-  Zombie randomChump(void) const;
-  std::string _randomString(size_t length) const;
+  void announce(void) const;
 };
 
 #endif

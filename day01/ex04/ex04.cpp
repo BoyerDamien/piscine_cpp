@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   ex04.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 18:24:51 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/25 12:59:13 by dboyer           ###   ########.fr       */
+/*   Created: 2020/11/26 09:10:42 by dboyer            #+#    #+#             */
+/*   Updated: 2020/11/26 09:13:55 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef ZOMBIE_EVENT_HPP
-#define ZOMBIE_EVENT_HPP
 
-#include "./Zombie.hpp"
 #include <iostream>
 
-class ZombieEvent {
+int main(int argc, char *argv[]) {
+  std::string mystring = "HI THIS IS BRAIN";
+  std::string *myStringPtr = &mystring;
+  std::string &mystringRef = mystring;
 
-private:
-  int _type;
-  int _randomNumber(const int begin, const int end) const;
-
-public:
-  ZombieEvent(int);
-  ~ZombieEvent();
-
-  void setZombieType(int);
-  Zombie *newZombie(std::string name) const;
-  Zombie randomChump(void) const;
-  std::string _randomString(size_t length) const;
-};
-
-#endif
+  std::cout << "Pointer = " << *myStringPtr << std::endl;
+  std::cout << "Ref = " << mystringRef << std::endl;
+  return 0;
+}

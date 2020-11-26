@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ZombieEvent.hpp                                    :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 18:24:51 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/25 12:59:13 by dboyer           ###   ########.fr       */
+/*   Created: 2020/11/26 10:58:19 by dboyer            #+#    #+#             */
+/*   Updated: 2020/11/26 11:08:05 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef ZOMBIE_EVENT_HPP
-#define ZOMBIE_EVENT_HPP
 
-#include "./Zombie.hpp"
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
+
+#include "./Weapon.hpp"
 #include <iostream>
 
-class ZombieEvent {
+class HumanA {
 
 private:
-  int _type;
-  int _randomNumber(const int begin, const int end) const;
+  const Weapon &_weapon;
+  const std::string _name;
 
 public:
-  ZombieEvent(int);
-  ~ZombieEvent();
-
-  void setZombieType(int);
-  Zombie *newZombie(std::string name) const;
-  Zombie randomChump(void) const;
-  std::string _randomString(size_t length) const;
+  HumanA(const std::string, const Weapon &);
+  ~HumanA();
+  void attack(void) const;
 };
 
 #endif

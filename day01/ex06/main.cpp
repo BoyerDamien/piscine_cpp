@@ -5,31 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/24 18:10:14 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/25 13:11:21 by dboyer           ###   ########.fr       */
+/*   Created: 2020/11/26 10:30:19 by dboyer            #+#    #+#             */
+/*   Updated: 2020/11/26 11:27:03 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ZombieEvent.hpp"
-#include "Zombie.hpp"
-
-void test(int type) {
-  std::cout << std::endl << "Test pour le type " << type << std::endl;
-  ZombieEvent event = ZombieEvent(type);
-  Zombie zombieOnTheStack = event.randomChump();
-  Zombie *zombieOnTheHeap = event.newZombie("test");
-
-  zombieOnTheStack.advert();
-  zombieOnTheStack.announce();
-
-  zombieOnTheHeap->advert();
-  zombieOnTheHeap->announce();
-  delete zombieOnTheHeap;
-}
+#include "./Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main(int argc, char *argv[]) {
-  for (int i = 0; i < 5; i++) {
-    test(i);
+  {
+    Weapon club = Weapon("crude spiked club");
+    HumanA bob("Bob", club);
+    bob.attack();
+    club.setType("some other type of club");
+    bob.attack();
+  }
+  {
+    Weapon club = Weapon("crude spiked club");
+    HumanB jim("Jim");
+    jim.setWeapon(club);
+    jim.attack();
+    club.setType("some other type of club");
+    jim.attack();
   }
   return 0;
 }
