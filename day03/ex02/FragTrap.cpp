@@ -6,14 +6,13 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:25:40 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/27 17:06:17 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/11/27 17:05:20 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./FragTrap.hpp"
 #include <cstdlib>
 #include <iostream>
-#include <ostream>
 
 /******************************************************************************
  *			Constructors and destructor
