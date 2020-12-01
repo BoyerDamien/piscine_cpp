@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 12:25:51 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/25 12:25:57 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/11/28 13:52:19 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,19 @@ bool Contact::_checkInput(const char *input, const char *re) const {
   return (std::regex_match(input, m, r));
 }
 
+static std::string ft_str_trim(std::string str, char c) {
+  size_t first = str.find_first_not_of(c);
+  size_t last = str.find_last_not_of(c);
+  if (first != std::string::npos && last != std::string::npos)
+    return str.substr(first, (last - first + 1));
+  return "";
+}
+
 std::string Contact::_readInput(const char *message, const char *re) const {
   std::string input;
   std::cout << message << ": ";
   std::getline(std::cin, input);
-  size_t first = input.find_first_not_of(" ");
-  size_t last = input.find_last_not_of(" ");
-  if (input.length() > 0)
-    input = input.substr(first, (last - first + 1));
+  input = ft_str_trim(input, ' ');
   if (this->_checkInput(input.c_str(), re)) {
     return (input);
   } else {

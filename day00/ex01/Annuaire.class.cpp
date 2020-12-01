@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 12:26:01 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/25 12:26:04 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/11/28 13:53:35 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,18 @@
 #include <regex>
 #include <string>
 
+static std::string ft_str_trim(std::string str, char c) {
+  size_t first = str.find_first_not_of(c);
+  size_t last = str.find_last_not_of(c);
+  if (first != std::string::npos && last != std::string::npos)
+    return str.substr(first, (last - first + 1));
+  return "";
+}
 std::string Annuaire::_readInput(const char *message) const {
   std::string line;
   std::cout << std::endl << message;
   std::getline(std::cin, line);
-  size_t first = line.find_first_not_of(" ");
-  size_t last = line.find_last_not_of(" ");
-  if (line.length() > 0)
-    return (line.substr(first, (last - first + 1)));
-  return line;
+  return ft_str_trim(line, ' ');
 }
 
 void Annuaire::addContact(void) {
