@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 12:26:01 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/28 13:53:35 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/03 12:17:21 by dess             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,28 @@ void Annuaire::addContact(void) {
 
 void Annuaire::showAttribute(Contact contact, std::string attribute) const {
   std::string result = contact.get(attribute);
-  std::cout << result << std::setw(11 - result.length()) << "|";
+  if (result.length() > 0)
+    std::cout << std::setw(10) << result << "|";
+  else
+    std::cout << std::setw(10) << attribute << "|";
 }
 
 void Annuaire::_showContacts(void) const {
   const std::string attributes[] = {"index", "first_name", "last_name",
                                     "nickname"};
-  for (std::string attribute : attributes) {
-    for (int i = 0; i < this->_contact_index; i++) {
-      if (attribute.compare("index") == 0) {
-        this->showAttribute(this->_contacts[i], std::to_string(i));
+  // Show header
+  for (int i = 0; i < 4; i++) {
+    this->showAttribute(this->_contacts[i], attributes[i]);
+  }
+  std::cout << std::endl;
+
+  // Show contacts informations
+  for (int c = 0; c < this->_contact_index; c++) {
+    for (int i = 0; i < 4; i++) {
+      if (i == 0) {
+        this->showAttribute(this->_contacts[c], std::to_string(c));
       } else {
-        this->showAttribute(this->_contacts[i], attribute);
+        this->showAttribute(this->_contacts[c], attributes[i]);
       }
     }
     std::cout << std::endl;
@@ -83,7 +93,7 @@ void Annuaire::searchContact(void) const {
       this->searchContact();
     }
   } else {
-    std::cerr << "Erreur: vous n'avez pas encore ajouter de contacte. Utiliser "
+    std::cerr << "Erreur: vous n'avez pas encore ajouter de contact. Utiliser "
                  "la commande ADD pour cela."
               << std::endl;
   }
@@ -98,7 +108,7 @@ bool Annuaire::_checkCommand(std::string cmd) {
   } else if (cmd.compare("SEARCH") == 0) {
     this->searchContact();
   } else {
-    std::cerr << "Erreur: commande iconnue" << std::endl;
+    std::cerr << "Erreur: commande inconnue" << std::endl;
     std::cin.clear();
   }
   return (true);

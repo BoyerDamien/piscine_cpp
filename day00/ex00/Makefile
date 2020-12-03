@@ -6,7 +6,7 @@
 #    By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 12:29:01 by dboyer            #+#    #+#              #
-#    Updated: 2020/11/25 12:29:03 by dboyer           ###   ########.fr        #
+#    Updated: 2020/12/03 11:31:03 by dess             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,5 +37,5 @@ re      :	fclean all
 
 run: all
 	./${NAME}
-	./${NAME} "ceci est un test"
-	./${NAME} ceci est un second test
+	./${NAME} "shhhhh... I think the students are asleep..."
+	./${NAME} Damnit " ! " "Sorry students, I thought this thing was off."
