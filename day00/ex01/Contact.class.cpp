@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 12:25:51 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/03 16:04:32 by dess             ###   ########.fr       */
+/*   Updated: 2020/12/03 16:44:04 by dess             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,14 @@ std::string Contact::_readInput(const char *message) const {
   std::cout << message << ": ";
   std::getline(std::cin, input);
   std::cin.clear();
-  return ft_str_trim(input, ' ');
+  input = ft_str_trim(input, ' ');
+  if (input.length() > 0)
+    return input;
+  else {
+    std::cerr << "Erreur: Merci de bien vouloir entrer une valeur!" << std::endl
+              << std::endl;
+    return this->_readInput(message);
+  }
 }
 
 void Contact::set_attributes(void) {
