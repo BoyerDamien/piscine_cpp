@@ -6,16 +6,17 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 12:26:01 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/03 12:17:21 by dess             ###   ########.fr       */
+/*   Updated: 2020/12/03 16:22:42 by dess             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Annuaire.class.hpp"
 #include "Contact.class.hpp"
+#include <cctype>
 #include <cstddef>
 #include <cstdio>
 #include <iomanip>
-#include <regex>
+#include <sstream>
 #include <string>
 
 static std::string ft_str_trim(std::string str, char c) {
@@ -48,6 +49,18 @@ void Annuaire::showAttribute(Contact contact, std::string attribute) const {
     std::cout << std::setw(10) << attribute << "|";
 }
 
+static std::string to_string(int i) {
+  std::stringstream str;
+  str << i;
+  return str.str();
+}
+
+static int str_to_int(std::string str) {
+  int ret;
+  std::istringstream(str) >> ret;
+  return ret;
+}
+
 void Annuaire::_showContacts(void) const {
   const std::string attributes[] = {"index", "first_name", "last_name",
                                     "nickname"};
@@ -61,7 +74,7 @@ void Annuaire::_showContacts(void) const {
   for (int c = 0; c < this->_contact_index; c++) {
     for (int i = 0; i < 4; i++) {
       if (i == 0) {
-        this->showAttribute(this->_contacts[c], std::to_string(c));
+        this->showAttribute(this->_contacts[c], to_string(c));
       } else {
         this->showAttribute(this->_contacts[c], attributes[i]);
       }
@@ -70,18 +83,21 @@ void Annuaire::_showContacts(void) const {
   }
 }
 
-bool Annuaire::_checkInput(const char *input, const char *re) const {
-  std::regex r(re);
-  std::cmatch m;
-  return (std::regex_match(input, m, r));
+bool Annuaire::_checkInput(const std::string input) const {
+  for (size_t i = 0; i < input.length(); i++) {
+    if (!std::isdigit(input[i])) {
+      return false;
+    }
+  }
+  return true;
 }
 
 void Annuaire::searchContact(void) const {
   if (this->_contact_index > 0) {
     this->_showContacts();
-    std::string input = this->_readInput("Index: ");
-    if (this->_checkInput(input.c_str(), "[0-9]")) {
-      int index = std::stoi(input);
+    const std::string input = this->_readInput("Index: ");
+    if (this->_checkInput(input)) {
+      int index = str_to_int(input);
       if (index < this->_contact_index) {
         this->_contacts[index].show();
       } else {

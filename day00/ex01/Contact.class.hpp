@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 12:26:21 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/25 12:26:23 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/03 16:04:57 by dess             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ private:
   std::string _favorite_meal;
   std::string _underwear_color;
   std::string _darkest_secret;
-  bool _checkInput(const char *, const char *) const;
-  std::string _readInput(const char *, const char *) const;
+  std::string _readInput(const char *) const;
   std::string _truncate(std::string) const;
 
 public:

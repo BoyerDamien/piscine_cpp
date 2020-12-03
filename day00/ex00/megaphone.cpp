@@ -6,19 +6,20 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 12:29:06 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/03 11:29:30 by dess             ###   ########.fr       */
+/*   Updated: 2020/12/03 15:55:09 by dess             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <bits/c++config.h>
 #include <cctype>
+#include <cstddef>
 #include <iostream>
 #include <string>
 
 std::string ft_toupper(std::string str) {
   std::string ret;
-  for (auto c : str) {
-    ret.push_back(std::toupper(c));
+  for (size_t i = 0; i < str.length(); i++) {
+    ret.push_back(std::toupper(str[i]));
   }
   return ret;
 }

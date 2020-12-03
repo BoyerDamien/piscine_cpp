@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 12:26:11 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/25 12:26:13 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/03 16:11:39 by dess             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ private:
   bool _checkCommand(std::string);
   void _showContacts(void) const;
   std::string _readInput(const char *) const;
-  bool _checkInput(const char *, const char *) const;
+  bool _checkInput(const std::string) const;
 
 public:
   int run(void);

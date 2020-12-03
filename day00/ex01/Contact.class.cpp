@@ -6,21 +6,14 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 12:25:51 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/28 13:52:19 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/03 16:04:32 by dess             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Contact.class.hpp"
 #include <cstddef>
 #include <iostream>
-#include <regex>
 #include <string>
-
-bool Contact::_checkInput(const char *input, const char *re) const {
-  std::regex r(re);
-  std::cmatch m;
-  return (std::regex_match(input, m, r));
-}
 
 static std::string ft_str_trim(std::string str, char c) {
   size_t first = str.find_first_not_of(c);
@@ -30,39 +23,26 @@ static std::string ft_str_trim(std::string str, char c) {
   return "";
 }
 
-std::string Contact::_readInput(const char *message, const char *re) const {
+std::string Contact::_readInput(const char *message) const {
   std::string input;
   std::cout << message << ": ";
   std::getline(std::cin, input);
-  input = ft_str_trim(input, ' ');
-  if (this->_checkInput(input.c_str(), re)) {
-    return (input);
-  } else {
-    std::cerr << "Erreur: { " << input << " } est au mauvais format"
-              << std::endl
-              << std::endl;
-    std::cin.clear();
-    return (this->_readInput(message, re));
-  }
+  std::cin.clear();
+  return ft_str_trim(input, ' ');
 }
 
 void Contact::set_attributes(void) {
-  this->_first_name = this->_readInput("First Name", "[a-zA-Z- ]+");
-  this->_last_name = this->_readInput("Last Name", "[a-zA-Z- ]+");
-  this->_nickname = this->_readInput("Nickname", "[a-zA-Z- ]+");
-  this->_login = this->_readInput("Login", "[0-9a-zA-Z- _]+");
-  this->_birthday_date = this->_readInput("Birthday Date (jj/mm/aaaa)",
-                                          "[0-9]{2}/[0-9]{2}/[0-9]{4}");
-  this->_phone_number = this->_readInput("Phone Number (xx.xx.xx.xx.xx)",
-                                         "([0-9]{2}\\.){4}[0-9]{2}");
-  this->_email_address = this->_readInput(
-      "Email (example@test.com)", "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$");
-  this->_postal_address =
-      this->_readInput("Postal address (1 rue exemple, 75000 Test)",
-                       "([0-9]{1,4} [a-zA-Z0-9- é]+), [0-9]{5} ([A-Z][a-z]+)");
-  this->_darkest_secret = this->_readInput("Darkest secret", ".*");
-  this->_favorite_meal = this->_readInput("Favorite meal", ".*");
-  this->_underwear_color = this->_readInput("Underwear color", "[a-zA-Z ]+");
+  this->_first_name = this->_readInput("First Name");
+  this->_last_name = this->_readInput("Last Name");
+  this->_nickname = this->_readInput("Nickname");
+  this->_login = this->_readInput("Login");
+  this->_birthday_date = this->_readInput("Birthday Date");
+  this->_phone_number = this->_readInput("Phone Number");
+  this->_email_address = this->_readInput("Email");
+  this->_postal_address = this->_readInput("Postal address");
+  this->_darkest_secret = this->_readInput("Darkest secret");
+  this->_favorite_meal = this->_readInput("Favorite meal");
+  this->_underwear_color = this->_readInput("Underwear color");
 }
 
 std::string Contact::_truncate(std::string str) const {
