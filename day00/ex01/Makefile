@@ -6,7 +6,7 @@
 #    By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 12:26:37 by dboyer            #+#    #+#              #
-#    Updated: 2020/12/03 15:56:12 by dess             ###   ########.fr        #
+#    Updated: 2020/12/03 16:56:57 by dess             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,12 @@ MAIN = ./main.cpp
 OBJS = $(SRCS:.cpp=.o)
 MAIN_OBJS = $(MAIN:.cpp=.o)
 
+HEADERS = ./Annuaire.class.hpp ./Contact.class.hpp
+
 RM = rm -rf 
+
+%.o: %.cpp ${HEADERS}
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 all     :	$(NAME)
 
