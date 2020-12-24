@@ -6,7 +6,7 @@
 #    By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 12:26:37 by dboyer            #+#    #+#              #
-#    Updated: 2020/11/26 14:33:14 by dboyer           ###   ########.fr        #
+#    Updated: 2020/12/24 12:49:50 by dboyer           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = replace
 
 CXX = clang++
 
-CFLAGS = -Wall -Wextra -Werror -O3 -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -O3 -std=c++98
 
 MAIN = ./main.cpp
 
@@ -36,4 +36,4 @@ fclean  : clean
 re      :	fclean all
 
 run: all
-	./${NAME} | cat -e
+	cp Makefile Makefile2 && ./${NAME} Makefile2 CXX CDD && cat Makefile2 -e

@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 18:10:14 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/25 13:11:21 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/24 12:21:44 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void test(int type) {
   delete zombieOnTheHeap;
 }
 
-int main(int argc, char *argv[]) {
+int main(void) {
   for (int i = 0; i < 5; i++) {
     test(i);
   }

@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 10:30:19 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/26 11:27:03 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/24 12:42:29 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
-int main(int argc, char *argv[]) {
+int main(void) {
   {
     Weapon club = Weapon("crude spiked club");
     HumanA bob("Bob", club);

@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 13:16:31 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/25 14:05:59 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/24 11:55:14 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@
 class ZombieHorde {
 
 private:
-  size_t _n;
+  int _n;
   Zombie **_horde;
   Zombie *_newZombie(void) const;
   int _randomNumber(const int, const int) const;
   std::string _randomString(size_t) const;
 
 public:
-  ZombieHorde(size_t);
+  ZombieHorde(int);
   ~ZombieHorde();
 
   void announce(void) const;

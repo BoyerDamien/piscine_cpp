@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 15:41:54 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/24 17:58:49 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/24 11:06:38 by dess             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void ponyOnTheHeap(std::string name) {
   delete pony;
 }
 
-int main(int argc, char *argv[]) {
+int main(void) {
   ponyOnTheHeap("on the heap");
   ponyOnTheStack("on the stack");
   return 0;

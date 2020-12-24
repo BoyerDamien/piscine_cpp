@@ -6,14 +6,14 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 11:03:11 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/26 11:25:27 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/24 12:16:49 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./HumanB.hpp"
 #include "./Weapon.hpp"
 
-HumanB::HumanB(const std::string name) : _name(name), _weapon(NULL) {
+HumanB::HumanB(const std::string name) : _weapon(NULL), _name(name) {
   std::cout << name << " was created" << std::endl;
 }
 
