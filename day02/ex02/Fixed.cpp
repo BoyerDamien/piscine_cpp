@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 09:56:40 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/27 14:11:52 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 09:38:28 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ Fixed &Fixed::operator=(Fixed const &src) {
 }
 
 std::ostream &operator<<(std::ostream &stream, Fixed const &n) {
-  stream << n.toFloat();
-  return stream;
+  return stream << n.toFloat();
 }
 
 bool Fixed::operator==(const Fixed &r) const {

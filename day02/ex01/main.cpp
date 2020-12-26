@@ -6,13 +6,13 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 11:18:25 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/27 11:23:28 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 09:34:40 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Fixed.hpp"
 
-int main(int argc, char *argv[]) {
+int main(void) {
   Fixed a;
   Fixed const b(10);
   Fixed const c(42.4244f);
