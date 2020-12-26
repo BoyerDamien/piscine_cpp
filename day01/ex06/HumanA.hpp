@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 10:58:19 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/26 11:08:05 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 11:20:55 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,17 @@
 #include "./Weapon.hpp"
 #include <iostream>
 
-class HumanA {
+class HumanA
+{
 
-private:
-  const Weapon &_weapon;
-  const std::string _name;
+  private:
+	const Weapon &_weapon;
+	const std::string _name;
 
-public:
-  HumanA(const std::string, const Weapon &);
-  ~HumanA();
-  void attack(void) const;
+  public:
+	HumanA(const std::string, const Weapon &);
+	~HumanA();
+	void attack(void) const;
 };
 
 #endif
