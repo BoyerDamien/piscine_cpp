@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:25:40 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/27 17:06:17 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 10:07:27 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 /******************************************************************************
  *			Constructors and destructor
  ******************************************************************************/
-FragTrap::FragTrap(std::string name) : _name(name) {
+
+FragTrap::FragTrap(void) : _name("test") {
   this->_hitPoint = 100;
   this->_maxHitPoint = 100;
   this->_energyPoint = 100;
@@ -31,8 +32,20 @@ FragTrap::FragTrap(std::string name) : _name(name) {
             << std::endl;
 }
 
+FragTrap::FragTrap(std::string name) : _name(name) {
+  this->_hitPoint = 100;
+  this->_maxHitPoint = 100;
+  this->_energyPoint = 100;
+  this->_maxEnergyPoint = 100;
+  this->_level = 1;
+  this->_meleeAttack = 30;
+  this->_rangedAttack = 20;
+  this->_armorDamageReduction = 5;
+  std::cout << "FragTrap " << this->_name << "constructor called" << std::endl;
+}
+
 FragTrap::FragTrap(const FragTrap &other) {
-  this->_name = other.getName() + " copy";
+  this->_name = other.getName();
   this->_hitPoint = other.getHP();
   this->_maxEnergyPoint = 100;
   this->_maxHitPoint = 100;
@@ -70,7 +83,7 @@ void FragTrap::vaulthunter_dot_exe(const std::string &target) {
       this->_energyPoint -= 25;
       std::cout << "FragTrap " << this->_name
                 << " loose 25 points of energy, launch " << attacks[index]
-                << " and switch..." << std::endl;
+                << " on " << target << " and switch..." << std::endl;
     } else {
       std::cout << "FragTrap " << this->_name << " has not enough energy"
                 << std::endl;
@@ -134,7 +147,7 @@ void FragTrap::takeDamage(unsigned int amount) {
 
 void FragTrap::beRepaired(unsigned int amount) {
   const int newHp = amount + this->_hitPoint;
-  if (amount > this->_maxHitPoint) {
+  if ((int)amount > this->_maxHitPoint) {
     this->_hitPoint = this->_maxHitPoint;
   } else {
     this->_hitPoint = newHp;
@@ -144,6 +157,5 @@ void FragTrap::beRepaired(unsigned int amount) {
 }
 
 std::ostream &operator<<(std::ostream &stream, FragTrap const &obj) {
-  stream << obj.getName();
-  return stream;
+  return stream << obj.getName();
 }

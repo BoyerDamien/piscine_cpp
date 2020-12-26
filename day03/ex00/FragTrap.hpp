@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:25:09 by dboyer            #+#    #+#             */
-/*   Updated: 2020/11/27 16:26:03 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 09:56:02 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ private:
   int _armorDamageReduction;
 
 public:
+  FragTrap(void);
   FragTrap(std::string name);
   FragTrap(const FragTrap &);
   ~FragTrap(void);
