@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 09:42:19 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/26 11:20:37 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 11:36:48 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 Human::Human(void)
 {
-	std::cout << "A human with the brain " << this->_brain.identify() << " was created" << std::endl;
+	std::cout << "A human with the brain " << this->_brain.identify()
+			  << " was created" << std::endl;
 }
 
 Human::~Human()
 {
-	std::cout << "A human with the brain " << this->_brain.identify() << " was destroyed" << std::endl;
+	std::cout << "A human with the brain " << this->_brain.identify()
+			  << " was destroyed" << std::endl;
 }
 
 Brain const &Human::getBrain(void) const

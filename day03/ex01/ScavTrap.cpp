@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:25:40 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/26 11:23:20 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 11:38:34 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ ScavTrap::ScavTrap(std::string name) : _name(name)
 	this->_meleeAttack = 20;
 	this->_rangedAttack = 15;
 	this->_armorDamageReduction = 3;
-	std::cout << "ScavTrap " << this->_name << " default constructor called" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " default constructor called"
+			  << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other)
@@ -40,12 +41,14 @@ ScavTrap::ScavTrap(const ScavTrap &other)
 	this->_meleeAttack = 20;
 	this->_rangedAttack = 15;
 	this->_armorDamageReduction = 3;
-	std::cout << "ScavTrap " << this->_name << " copy constructor called" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " copy constructor called"
+			  << std::endl;
 }
 
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << "ScavTrap " << this->_name << " destructor called" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " destructor called"
+			  << std::endl;
 }
 
 /****************************************************************************
@@ -74,11 +77,14 @@ int ScavTrap::getEnergyPoint(void) const
  ****************************************************************************/
 void ScavTrap::challengeNewcomer() const
 {
-	const char *challenges[] = {"ice bucket challenge", "chicken bucket challenge", "fingers bucket challenge"};
+	const char *challenges[] = {"ice bucket challenge",
+								"chicken bucket challenge",
+								"fingers bucket challenge"};
 	int index = 0 + std::rand() % 5;
 	if (this->_hitPoint > 0)
 	{
-		std::cout << "ScavTrap " << this->_name << " launch the " << challenges[index] << std::endl;
+		std::cout << "ScavTrap " << this->_name << " launch the "
+				  << challenges[index] << std::endl;
 	}
 	else
 	{
@@ -95,13 +101,16 @@ void ScavTrap::rangedAttack(const std::string &target)
 		if (this->_energyPoint > 0)
 		{
 			this->_energyPoint--;
-			std::cout << "ScavTrap " << this->_name << " attacks " << target << " with a rangedAttack and deals "
-					  << this->_rangedAttack << " points of dammage and lose 1 point of energy and has now "
-					  << this->_energyPoint << " of energy points" << std::endl;
+			std::cout
+				<< "ScavTrap " << this->_name << " attacks " << target
+				<< " with a rangedAttack and deals " << this->_rangedAttack
+				<< " points of dammage and lose 1 point of energy and has now "
+				<< this->_energyPoint << " of energy points" << std::endl;
 		}
 		else
 		{
-			std::cout << "ScavTrap " << this->_name << " has no more energy and cannot attack" << std::endl;
+			std::cout << "ScavTrap " << this->_name
+					  << " has no more energy and cannot attack" << std::endl;
 		}
 	}
 	else
@@ -117,13 +126,16 @@ void ScavTrap::meleeAttack(const std::string &target)
 		if (this->_energyPoint > 0)
 		{
 			this->_energyPoint--;
-			std::cout << "ScavTrap " << this->_name << " attacks " << target << " with a meleeAttack and deals "
-					  << this->_meleeAttack << " points of dammage and lose 1 point of energy and has now "
-					  << this->_energyPoint << " of energy points" << std::endl;
+			std::cout
+				<< "ScavTrap " << this->_name << " attacks " << target
+				<< " with a meleeAttack and deals " << this->_meleeAttack
+				<< " points of dammage and lose 1 point of energy and has now "
+				<< this->_energyPoint << " of energy points" << std::endl;
 		}
 		else
 		{
-			std::cout << "ScavTrap " << this->_name << " has no more energy and cannot attack" << std::endl;
+			std::cout << "ScavTrap " << this->_name
+					  << " has no more energy and cannot attack" << std::endl;
 		}
 	}
 	else
@@ -145,8 +157,9 @@ void ScavTrap::takeDamage(unsigned int amount)
 		{
 			this->_hitPoint = 0;
 		}
-		std::cout << "ScavTrap " << this->_name << " takes " << amount << " damages and has now " << this->_hitPoint
-				  << " of HP" << std::endl;
+		std::cout << "ScavTrap " << this->_name << " takes " << amount
+				  << " damages and has now " << this->_hitPoint << " of HP"
+				  << std::endl;
 	}
 	else
 	{
@@ -165,6 +178,6 @@ void ScavTrap::beRepaired(unsigned int amount)
 	{
 		this->_hitPoint = newHp;
 	}
-	std::cout << "ScavTrap " << this->_name << " has been repaired and has now " << this->_hitPoint << " of HP"
-			  << std::endl;
+	std::cout << "ScavTrap " << this->_name << " has been repaired and has now "
+			  << this->_hitPoint << " of HP" << std::endl;
 }

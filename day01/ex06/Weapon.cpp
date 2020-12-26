@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 10:47:18 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/26 11:21:16 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 11:37:16 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 Weapon::Weapon(const std::string type) : _type(type)
 {
-	std::cout << "A weapon of type: " << this->_type << " was created" << std::endl;
+	std::cout << "A weapon of type: " << this->_type << " was created"
+			  << std::endl;
 }
 
 Weapon::~Weapon()
 {
-	std::cout << "A weapon of type: " << this->_type << " was destroyed" << std::endl;
+	std::cout << "A weapon of type: " << this->_type << " was destroyed"
+			  << std::endl;
 }
 
 const std::string &Weapon::getType(void) const

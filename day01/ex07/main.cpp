@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 13:33:39 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/26 11:21:27 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 11:37:26 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ bool writeLines(const char *path, const char *str)
 	return false;
 }
 
-void replaceAll(std::string &text, std::string to_search, const char *to_replace)
+void replaceAll(std::string &text, std::string to_search,
+				const char *to_replace)
 {
 	size_t pos;
 

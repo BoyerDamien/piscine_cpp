@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 11:03:11 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/26 11:20:58 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 11:37:02 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void HumanB::attack(void) const
 {
 	if (this->_weapon)
 	{
-		std::cout << this->_name << " attacks with his " << this->_weapon->getType() << std::endl;
+		std::cout << this->_name << " attacks with his "
+				  << this->_weapon->getType() << std::endl;
 	}
 	else
 	{

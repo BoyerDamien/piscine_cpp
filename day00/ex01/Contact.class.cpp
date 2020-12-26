@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 12:25:51 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/26 11:18:46 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 11:35:29 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ std::string Contact::_readInput(const char *message) const
 		return input;
 	else
 	{
-		std::cerr << "Erreur: Merci de bien vouloir entrer une valeur!" << std::endl << std::endl;
+		std::cerr << "Erreur: Merci de bien vouloir entrer une valeur!"
+				  << std::endl
+				  << std::endl;
 		return this->_readInput(message);
 	}
 }

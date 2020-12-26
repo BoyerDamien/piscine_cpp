@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 12:26:01 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/26 11:18:29 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 11:35:24 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,8 @@ static int str_to_int(std::string str)
 
 void Annuaire::_showContacts(void) const
 {
-	const std::string attributes[] = {"index", "first_name", "last_name", "nickname"};
+	const std::string attributes[] = {"index", "first_name", "last_name",
+									  "nickname"};
 	// Show header
 	for (int i = 0; i < 4; i++)
 	{
@@ -137,9 +138,10 @@ void Annuaire::searchContact(void) const
 	}
 	else
 	{
-		std::cerr << "Erreur: vous n'avez pas encore ajouter de contact. Utiliser "
-					 "la commande ADD pour cela."
-				  << std::endl;
+		std::cerr
+			<< "Erreur: vous n'avez pas encore ajouter de contact. Utiliser "
+			   "la commande ADD pour cela."
+			<< std::endl;
 	}
 }
 

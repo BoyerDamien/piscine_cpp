@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 18:27:19 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/26 11:19:49 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 11:36:04 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@
 
 ZombieEvent::ZombieEvent(int type) : _type(type)
 {
-	std::cout << "ZombieEvent with type " << _type << " was created" << std::endl;
+	std::cout << "ZombieEvent with type " << _type << " was created"
+			  << std::endl;
 }
 
 ZombieEvent::~ZombieEvent()
 {
-	std::cout << "ZombieEvent with type " << this->_type << " was destroyed" << std::endl;
+	std::cout << "ZombieEvent with type " << this->_type << " was destroyed"
+			  << std::endl;
 }
 
 void ZombieEvent::setZombieType(int type)
