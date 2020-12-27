@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 11:18:25 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/26 11:22:06 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 17:49:10 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main(void)
 	Fixed const c(42.4244f);
 	Fixed const d(b);
 	a = Fixed(1234.4321f);
+	std::cout << (a.getRawBits() >> 8) << " test" << std::endl;
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;

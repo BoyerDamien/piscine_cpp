@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:25:40 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/26 11:38:17 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 11:42:04 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void FragTrap::vaulthunter_dot_exe(const std::string &target)
 			this->_energyPoint -= 25;
 			std::cout << "FragTrap " << this->_name
 					  << " loose 25 points of energy, launch " << attacks[index]
-					  << " and switch..." << std::endl;
+					  << " on" << target << " and switch..." << std::endl;
 		}
 		else
 		{
@@ -180,7 +180,7 @@ void FragTrap::takeDamage(unsigned int amount)
 void FragTrap::beRepaired(unsigned int amount)
 {
 	const int newHp = amount + this->_hitPoint;
-	if (amount > this->_maxHitPoint)
+	if ((int)amount > this->_maxHitPoint)
 	{
 		this->_hitPoint = this->_maxHitPoint;
 	}

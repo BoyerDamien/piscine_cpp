@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 09:56:40 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/26 11:21:45 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 14:50:06 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,5 @@ Fixed &Fixed::operator=(Fixed const &src)
 
 std::ostream &operator<<(std::ostream &stream, Fixed const &n)
 {
-	stream << n.getRawBits();
-	return stream;
+	return stream << n.getRawBits();
 }

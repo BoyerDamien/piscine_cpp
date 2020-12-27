@@ -6,14 +6,14 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 15:43:01 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/26 11:23:11 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/26 11:42:19 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./FragTrap.hpp"
 #include "./ScavTrap.hpp"
 
-int main(int argc, char *argv[])
+int main(void)
 {
 	{
 		std::string target = "téo";
