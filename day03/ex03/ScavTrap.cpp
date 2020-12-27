@@ -1,61 +1,67 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:25:40 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/27 14:01:37 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/27 14:02:52 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./FragTrap.hpp"
+#include "./ScavTrap.hpp"
 #include <cstdlib>
 #include <iostream>
 
 /******************************************************************************
  *			Constructors and destructor
  ******************************************************************************/
-FragTrap::FragTrap(void) : ClapTrap()
+ScavTrap::ScavTrap(void) : ClapTrap()
 {
+	this->_name = "Default";
 	this->_hitPoint = 100;
 	this->_maxHitPoint = 100;
-	this->_energyPoint = 100;
-	this->_maxEnergyPoint = 100;
+	this->_energyPoint = 50;
+	this->_maxEnergyPoint = 50;
 	this->_level = 1;
-	this->_meleeAttack = 30;
-	this->_rangedAttack = 20;
-	this->_armorDamageReduction = 5;
-	std::cout << "FragTrap " << this->_name << " default constructor called";
-}
+	this->_meleeAttack = 20;
+	this->_rangedAttack = 15;
+	this->_armorDamageReduction = 3;
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name)
-{
-	this->_hitPoint = 100;
-	this->_maxHitPoint = 100;
-	this->_energyPoint = 100;
-	this->_maxEnergyPoint = 100;
-	this->_level = 1;
-	this->_meleeAttack = 30;
-	this->_rangedAttack = 20;
-	this->_armorDamageReduction = 5;
-	std::cout << "FragTrap " << this->_name << " constructor called";
-}
-
-FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other)
-{
-	std::cout << "FragTrap " << this->_name << " copy constructor called"
+	std::cout << "ScavTrap " << this->_name << " default constructor called"
 			  << std::endl;
 }
 
-FragTrap::~FragTrap(void)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "FragTrap " << this->_name << " destructor called"
+	this->_name = "Default";
+	this->_hitPoint = 100;
+	this->_maxHitPoint = 100;
+	this->_energyPoint = 50;
+	this->_maxEnergyPoint = 50;
+	this->_level = 1;
+	this->_meleeAttack = 20;
+	this->_rangedAttack = 15;
+	this->_armorDamageReduction = 3;
+
+	std::cout << "ScavTrap " << this->_name << " constructor called"
 			  << std::endl;
 }
 
-FragTrap &FragTrap::operator=(FragTrap const &other)
+ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
+{
+	std::cout << "ScavTrap " << this->_name << " copy constructor called"
+			  << std::endl;
+}
+
+ScavTrap::~ScavTrap(void)
+{
+	std::cout << "ScavTrap " << this->_name << " destructor called"
+			  << std::endl;
+}
+
+ScavTrap &ScavTrap::operator=(ScavTrap const &other)
 {
 	this->_name = other.getName();
 	this->_hitPoint = other.getHP();
@@ -66,35 +72,26 @@ FragTrap &FragTrap::operator=(FragTrap const &other)
 	this->_meleeAttack = 30;
 	this->_rangedAttack = 20;
 	this->_armorDamageReduction = 5;
-	std::cout << "FragTrap " << this->_name << " assignation operator called"
+	std::cout << "ScavTrap " << this->_name << " assignation operator called"
 			  << std::endl;
 	return *this;
 }
 /****************************************************************************
  *				specific attacks
  ****************************************************************************/
-void FragTrap::vaulthunter_dot_exe(const std::string &target)
+void ScavTrap::challengeNewcomer() const
 {
-	const char *attacks[] = {"lance flamme", "mimi-queue", "rugissement",
-							 "charge", "ultralaser"};
+	const char *challenges[] = {"ice bucket challenge",
+								"chicken bucket challenge",
+								"fingers bucket challenge"};
 	int index = 0 + std::rand() % 5;
 	if (this->_hitPoint > 0)
 	{
-		if (this->_energyPoint >= 25)
-		{
-			this->_energyPoint -= 25;
-			std::cout << "FragTrap " << this->_name
-					  << " loose 25 points of energy, launch " << attacks[index]
-					  << " on " << target << " and switch..." << std::endl;
-		}
-		else
-		{
-			std::cout << "FragTrap " << this->_name << " has not enough energy"
-					  << std::endl;
-		}
+		std::cout << "ScavTrap " << this->_name << " launch the "
+				  << challenges[index] << std::endl;
 	}
 	else
 	{
-		std::cout << "FragTrap " << this->_name << " is dead" << std::endl;
+		std::cout << "ScavTrap " << this->_name << " is dead" << std::endl;
 	}
 }

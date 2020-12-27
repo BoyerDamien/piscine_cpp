@@ -6,9 +6,11 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 09:48:12 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/26 11:21:49 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/27 11:48:18 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef FIXED_H
+#define FIXED_H
 
 #include <iostream>
 
@@ -30,3 +32,5 @@ class Fixed
 };
 
 std::ostream &operator<<(std::ostream &, Fixed const &);
+
+#endif

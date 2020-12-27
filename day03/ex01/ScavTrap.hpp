@@ -6,9 +6,11 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:25:09 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/26 11:23:24 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/27 11:46:29 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef SCAVTRAP_H
+#define SCAVTRAP_H
 
 #include <iostream>
 #include <ostream>
@@ -28,6 +30,7 @@ class ScavTrap
 	int _armorDamageReduction;
 
   public:
+	ScavTrap(void);
 	ScavTrap(std::string name);
 	ScavTrap(const ScavTrap &);
 	~ScavTrap(void);
@@ -45,4 +48,4 @@ class ScavTrap
 	int getEnergyPoint(void) const;
 };
 
-std::ostream &operator<<(std::ostream &, ScavTrap const &);
+#endif

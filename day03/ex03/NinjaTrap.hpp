@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 14:25:09 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/27 11:41:50 by dboyer           ###   ########.fr       */
+/*   Created: 2020/12/27 11:53:25 by dboyer            #+#    #+#             */
+/*   Updated: 2020/12/27 12:17:28 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-#define SCAVTRAP_H
+#ifndef NINJATRAP_H
+#define NINJATRAP_H
 
 #include "./ClapTrap.hpp"
+#include "./FragTrap.hpp"
+#include "./ScavTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class NinjaTrap : public ClapTrap
 {
-
   public:
 	// Canonical form
-	ScavTrap(void);
-	ScavTrap(std::string name);
-	ScavTrap(const ScavTrap &);
-	virtual ~ScavTrap(void);
-	ScavTrap &operator=(const ScavTrap &);
+	NinjaTrap(void);
+	NinjaTrap(const std::string name);
+	NinjaTrap(const NinjaTrap &);
+	virtual ~NinjaTrap(void);
+	NinjaTrap &operator=(const NinjaTrap &);
 
 	// Methods
-	void challengeNewcomer(void) const;
+	void ninjaShoeBox(const ClapTrap &) const;
+	void ninjaShoeBox(const ScavTrap &) const;
+	void ninjaShoeBox(const NinjaTrap &) const;
+	void ninjaShoeBox(const FragTrap &) const;
 };
 
 #endif

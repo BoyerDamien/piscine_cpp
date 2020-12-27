@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 15:43:01 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/26 11:42:19 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/27 12:34:15 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int main(void)
 {
 	{
 		std::string target = "téo";
+		FragTrap defaultFrag = FragTrap();
+		defaultFrag.meleeAttack(target);
 		FragTrap damien = FragTrap("Damien");
 		damien.meleeAttack(target);
 		damien.rangedAttack(target);
@@ -26,9 +28,15 @@ int main(void)
 		damien.meleeAttack(target);
 		FragTrap fromDamien = FragTrap(damien);
 		fromDamien.meleeAttack(target);
+
+		fromDamien = defaultFrag;
+		damien = fromDamien;
+		defaultFrag = damien;
 	}
 	{
 		std::string target = "téo";
+		ScavTrap defaultScav = ScavTrap();
+		defaultScav.meleeAttack(target);
 		ScavTrap damien = ScavTrap("Damien");
 		damien.meleeAttack(target);
 		damien.rangedAttack(target);
@@ -38,6 +46,10 @@ int main(void)
 		damien.meleeAttack(target);
 		ScavTrap fromDamien = ScavTrap(damien);
 		fromDamien.meleeAttack(target);
+
+		fromDamien = defaultScav;
+		damien = fromDamien;
+		defaultScav = damien;
 	}
 	return 0;
 }

@@ -6,9 +6,11 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:25:09 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/26 11:22:53 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/27 15:34:10 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#ifndef FRAGTRAP_H
+#define FRAGTRAP_H
 
 #include <iostream>
 #include <ostream>
@@ -46,4 +48,4 @@ class FragTrap
 	int getEnergyPoint(void) const;
 };
 
-std::ostream &operator<<(std::ostream &, FragTrap const &);
+#endif

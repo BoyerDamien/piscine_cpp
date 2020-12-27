@@ -1,47 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 14:25:09 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/27 11:45:53 by dboyer           ###   ########.fr       */
+/*   Created: 2020/12/27 10:48:09 by dboyer            #+#    #+#             */
+/*   Updated: 2020/12/27 11:43:12 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef FRAGTRAP_H
-#define FRAGTRAP_H
 
-#include <iostream>
+#ifndef CLAPTRAP_H
+#define CLAPTRAP_H
+
 #include <ostream>
 
-class FragTrap
+class ClapTrap
 {
-
-  private:
+  protected:
 	int _hitPoint;
 	int _maxHitPoint;
 	int _energyPoint;
 	int _maxEnergyPoint;
 	int _level;
-	std::string _name;
 	int _meleeAttack;
 	int _rangedAttack;
 	int _armorDamageReduction;
+	std::string _name;
 
   public:
-	FragTrap(void);
-	FragTrap(std::string name);
-	FragTrap(const FragTrap &);
-	~FragTrap(void);
+	// Canonical form
+	ClapTrap(void);
+	ClapTrap(std::string name);
+	ClapTrap(const ClapTrap &);
+	~ClapTrap(void);
+	ClapTrap &operator=(const ClapTrap &);
 
-	FragTrap &operator=(const FragTrap &);
+	// Methods
 	void rangedAttack(std::string const &target);
 	void meleeAttack(std::string const &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-	void vaulthunter_dot_exe(std::string const &target);
-
 	std::string getName(void) const;
 	int getHP(void) const;
 	int getLevel(void) const;

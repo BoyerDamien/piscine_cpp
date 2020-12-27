@@ -6,40 +6,39 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 15:43:01 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/27 12:32:48 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/27 12:41:00 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "./ClapTrap.hpp"
 #include "./FragTrap.hpp"
-
-void test(FragTrap object, std::string target, int dammage)
-{
-
-	object.meleeAttack(target);
-	object.rangedAttack(target);
-	object.vaulthunter_dot_exe(target);
-	object.takeDamage(dammage);
-	object.meleeAttack(target);
-}
+#include "./NinjaTrap.hpp"
+#include "./ScavTrap.hpp"
 
 int main(void)
 {
 	std::string target = "téo";
 
-	// Test with default constructor
-	FragTrap defaultConst = FragTrap();
-	test(defaultConst, target, 10);
+	FragTrap defaultFrag = FragTrap();
+	ScavTrap defaultScav = ScavTrap();
+	ClapTrap defaultClap = ClapTrap();
+	NinjaTrap defaultNinja = NinjaTrap();
+	NinjaTrap damien = NinjaTrap("damien");
 
-	// Test with simple constructor
-	FragTrap simpleConst = FragTrap("Damien");
-	test(simpleConst, target, 10);
+	defaultNinja.ninjaShoeBox(defaultFrag);
+	defaultNinja.ninjaShoeBox(defaultScav);
+	defaultNinja.ninjaShoeBox(defaultClap);
+	defaultNinja.ninjaShoeBox(defaultNinja);
+	defaultNinja.ninjaShoeBox(damien);
 
-	// Test with copy copy constructor
-	FragTrap copyConst = FragTrap(simpleConst);
-	test(copyConst, target, 10);
+	damien.meleeAttack("test");
+	damien.rangedAttack("test");
+	damien.takeDamage(105);
+	NinjaTrap fromDamien = NinjaTrap(damien);
+	fromDamien.meleeAttack("test");
 
-	defaultConst = simpleConst;
-	simpleConst = copyConst;
-	copyConst = defaultConst;
+	defaultNinja = damien;
+	damien = fromDamien;
+	fromDamien = defaultNinja;
 	return 0;
 }
