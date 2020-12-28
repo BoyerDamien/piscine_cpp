@@ -6,11 +6,12 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:25:40 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/27 17:29:47 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/28 18:03:15 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./FragTrap.hpp"
+#include "ClapTrap.hpp"
 #include <cstdlib>
 #include <iostream>
 
@@ -27,7 +28,8 @@ FragTrap::FragTrap(void) : ClapTrap()
 	this->_meleeAttack = 30;
 	this->_rangedAttack = 20;
 	this->_armorDamageReduction = 5;
-	std::cout << "FragTrap " << this->_name << " default constructor called";
+	std::cout << "FragTrap " << this->_name << " default constructor called"
+			  << std::endl;
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
@@ -40,11 +42,17 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	this->_meleeAttack = 30;
 	this->_rangedAttack = 20;
 	this->_armorDamageReduction = 5;
-	std::cout << "FragTrap " << this->_name << " constructor called";
+	std::cout << "FragTrap " << this->_name << " constructor called"
+			  << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other)
 {
+	this->_maxHitPoint = 100;
+	this->_maxEnergyPoint = 100;
+	this->_meleeAttack = 30;
+	this->_rangedAttack = 20;
+	this->_armorDamageReduction = 5;
 	std::cout << "FragTrap " << this->_name << " copy constructor called"
 			  << std::endl;
 }
@@ -59,9 +67,9 @@ FragTrap &FragTrap::operator=(FragTrap const &other)
 {
 	this->_name = other.getName();
 	this->_hitPoint = other.getHP();
-	this->_maxEnergyPoint = 100;
 	this->_maxHitPoint = 100;
 	this->_energyPoint = other.getEnergyPoint();
+	this->_maxEnergyPoint = 100;
 	this->_level = other.getLevel();
 	this->_meleeAttack = 30;
 	this->_rangedAttack = 20;
@@ -91,31 +99,6 @@ void FragTrap::vaulthunter_dot_exe(const std::string &target)
 		{
 			std::cout << "FragTrap " << this->_name << " has not enough energy"
 					  << std::endl;
-		}
-	}
-	else
-	{
-		std::cout << "FragTrap " << this->_name << " is dead" << std::endl;
-	}
-}
-
-void FragTrap::rangedAttack(const std::string &target)
-{
-	if (this->_hitPoint > 0)
-	{
-		if (this->_energyPoint > 0)
-		{
-			this->_energyPoint--;
-			std::cout
-				<< "FragTrap " << this->_name << " attacks " << target
-				<< " with a rangedAttack and deals " << this->_rangedAttack
-				<< " points of dammage and lose 1 point of energy and has now "
-				<< this->_energyPoint << " of energy points" << std::endl;
-		}
-		else
-		{
-			std::cout << "FragTrap " << this->_name
-					  << " has no more energy and cannot attack" << std::endl;
 		}
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 11:53:25 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/27 17:12:18 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/28 19:40:25 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,8 @@
 #include "./FragTrap.hpp"
 #include "./ScavTrap.hpp"
 
-class NinjaTrap : virtual public ClapTrap
+class NinjaTrap : public ClapTrap
 {
-  private:
-	int _hitPoint;
-	int _maxHitPoint;
-	int _level;
-	int _rangedAttack;
-	int _armorDamageReduction;
-	std::string _name;
-
   public:
 	// Canonical form
 	NinjaTrap(void);
@@ -36,10 +28,10 @@ class NinjaTrap : virtual public ClapTrap
 	NinjaTrap &operator=(const NinjaTrap &);
 
 	// Methods
-	void ninjaShoeBox(const ClapTrap &) const;
-	void ninjaShoeBox(const ScavTrap &) const;
-	void ninjaShoeBox(const NinjaTrap &) const;
-	void ninjaShoeBox(const FragTrap &) const;
+	virtual void ninjaShoeBox(const ClapTrap &) const;
+	virtual void ninjaShoeBox(const ScavTrap &) const;
+	virtual void ninjaShoeBox(const NinjaTrap &) const;
+	virtual void ninjaShoeBox(const FragTrap &) const;
 };
 
 #endif

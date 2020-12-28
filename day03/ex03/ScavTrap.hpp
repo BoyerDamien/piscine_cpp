@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:25:09 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/27 11:41:50 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/28 17:55:19 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 class ScavTrap : public ClapTrap
 {
-
   public:
 	// Canonical form
 	ScavTrap(void);
@@ -27,7 +26,7 @@ class ScavTrap : public ClapTrap
 	ScavTrap &operator=(const ScavTrap &);
 
 	// Methods
-	void challengeNewcomer(void) const;
+	virtual void challengeNewcomer(void) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:25:40 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/27 14:02:52 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/28 17:50:43 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 #include <iostream>
 
 /******************************************************************************
- *			Constructors and destructor
+ *			            Constructors and destructor
  ******************************************************************************/
 ScavTrap::ScavTrap(void) : ClapTrap()
 {
-	this->_name = "Default";
 	this->_hitPoint = 100;
 	this->_maxHitPoint = 100;
 	this->_energyPoint = 50;
@@ -28,14 +27,12 @@ ScavTrap::ScavTrap(void) : ClapTrap()
 	this->_meleeAttack = 20;
 	this->_rangedAttack = 15;
 	this->_armorDamageReduction = 3;
-
 	std::cout << "ScavTrap " << this->_name << " default constructor called"
 			  << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	this->_name = "Default";
 	this->_hitPoint = 100;
 	this->_maxHitPoint = 100;
 	this->_energyPoint = 50;
@@ -44,13 +41,18 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	this->_meleeAttack = 20;
 	this->_rangedAttack = 15;
 	this->_armorDamageReduction = 3;
-
 	std::cout << "ScavTrap " << this->_name << " constructor called"
 			  << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
 {
+	this->_maxEnergyPoint = 100;
+	this->_maxHitPoint = 100;
+	this->_meleeAttack = 30;
+	this->_rangedAttack = 20;
+	this->_armorDamageReduction = 5;
+
 	std::cout << "ScavTrap " << this->_name << " copy constructor called"
 			  << std::endl;
 }
@@ -77,7 +79,7 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &other)
 	return *this;
 }
 /****************************************************************************
- *				specific attacks
+ *				            Specific attacks
  ****************************************************************************/
 void ScavTrap::challengeNewcomer() const
 {
