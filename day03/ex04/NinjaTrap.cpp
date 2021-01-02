@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 12:00:42 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/28 18:35:54 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/02 11:03:47 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ NinjaTrap &NinjaTrap::operator=(NinjaTrap const &other)
 			  << std::endl;
 	return *this;
 }
+
 /******************************************************************************
  *                              Specific methods
  *****************************************************************************/
@@ -104,4 +105,29 @@ void NinjaTrap::ninjaShoeBox(const FragTrap &other) const
 {
 	std::cout << "NinjaTrap " << this->_name << " plays with "
 			  << other.getName() << std::endl;
+}
+
+void NinjaTrap::meleeAttack(const std::string &target)
+{
+	if (this->_hitPoint > 0)
+	{
+		if (this->_energyPoint > 0)
+		{
+			this->_energyPoint--;
+			std::cout
+				<< "(NinjaTrap method) " << this->_name << " attacks " << target
+				<< " with a meleeAttack and deals " << this->_meleeAttack
+				<< " points of dammage and lose 1 point of energy and has now "
+				<< this->_energyPoint << " of energy points" << std::endl;
+		}
+		else
+		{
+			std::cout << this->_name << " has no more energy and cannot attack"
+					  << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << this->_name << " is dead" << std::endl;
+	}
 }

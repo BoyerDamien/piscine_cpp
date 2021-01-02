@@ -6,16 +6,14 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 15:43:01 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/28 19:32:27 by dboyer           ###   ########.fr       */
+/*   Updated: 2020/12/31 09:39:05 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./ClapTrap.hpp"
 #include "./FragTrap.hpp"
 #include "./NinjaTrap.hpp"
 #include "./ScavTrap.hpp"
 #include <iostream>
-#include <string>
 
 const std::string SEPARATOR =
 	"\n\n################################################"
@@ -31,29 +29,13 @@ void show_result(std::string message, bool status)
 	}
 	else
 	{
-		std::cerr << message << "KO" << std::endl;
+		std::cerr << message << "[KO]" << std::endl;
 	}
 	std::cerr << SEPARATOR << std::endl;
 }
 
-bool test_attributes(NinjaTrap defaultNinja, std::string name)
+bool test_attributes(int attributesCorrectValues[], int attributesRealValues[])
 {
-	int attributesCorrectValues[] = {60, 60, 120, 120, 1, 60, 5, 0};
-	int attributesRealValues[] = {
-		defaultNinja.getHP(),			defaultNinja.getMaxHP(),
-		defaultNinja.getEnergyPoint(),	defaultNinja.getMaxEnergyPoint(),
-		defaultNinja.getLevel(),		defaultNinja.getMeleeAttack(),
-		defaultNinja.getRangedAttack(), defaultNinja.getArmorDamageReduction()};
-
-	// Test Name
-	if (name != defaultNinja.getName())
-	{
-		std::cerr << defaultNinja.getName() << " != " << name << std::endl;
-
-		return false;
-	}
-
-	// Test attributes values
 	for (int i = 0; i < 8; i++)
 	{
 		if (attributesRealValues[i] != attributesCorrectValues[i])
@@ -66,36 +48,83 @@ bool test_attributes(NinjaTrap defaultNinja, std::string name)
 	return true;
 }
 
+bool test_attributesNinja(NinjaTrap defaultninja, std::string name)
+{
+	int attributesCorrectValues[] = {60, 60, 120, 120, 1, 60, 5, 0};
+	int attributesRealValues[] = {
+		defaultninja.getHP(),			defaultninja.getMaxHP(),
+		defaultninja.getEnergyPoint(),	defaultninja.getMaxEnergyPoint(),
+		defaultninja.getLevel(),		defaultninja.getMeleeAttack(),
+		defaultninja.getRangedAttack(), defaultninja.getArmorDamageReduction()};
+
+	// Test Name
+	if (name != defaultninja.getName())
+	{
+		std::cerr << defaultninja.getName() << " != " << name << std::endl;
+
+		return false;
+	}
+
+	return test_attributes(attributesCorrectValues, attributesRealValues);
+}
+
 bool test_assignation(void)
 {
-	// Test copy and assignation
+	// Test copy and assignation for NinjaTrap
 	NinjaTrap ninja = NinjaTrap("ninja");
 	NinjaTrap copyNinja = NinjaTrap(ninja);
 	NinjaTrap assignationNinja = ninja;
 
-	bool result = (copyNinja == ninja) && (ninja == assignationNinja) &&
-				  (copyNinja == assignationNinja);
-	show_result("Assignation test: ", result);
+	bool result1 = (copyNinja == ninja) && (ninja == assignationNinja) &&
+				   (copyNinja == assignationNinja);
+	show_result("NinjaTrap assignation test: ", result1);
 
-	return result;
+	return result1;
 }
 
 bool test_constructors(void)
 {
 	std::cout << std::endl << "TEST CONSTRUCTORS" << std::endl << std::endl;
-	NinjaTrap defaultNinja = NinjaTrap();
+
+	// NinjaTrap testing
+	NinjaTrap defaultninja = NinjaTrap();
 	NinjaTrap damien = NinjaTrap("Damien");
 
-	bool result = test_attributes(defaultNinja, "Default");
-	show_result("Test attributes default: ", result);
+	bool result = test_attributesNinja(defaultninja, "Default");
+	show_result("NinjaTrap test attributes default: ", result);
 
-	result = test_attributes(damien, "Damien");
-	show_result("Test attributes normal constructor: ", result);
+	result = test_attributesNinja(damien, "Damien");
+	show_result("NinjaTrap test attributes normal constructor: ", result);
 
 	return result;
 }
 
+void test_methods(void)
+{
+
+	std::cout << SEPARATOR << std::endl;
+	std::cout << "NinjaTrap methods test" << std::endl;
+	std::cout << SEPARATOR << std::endl;
+
+	NinjaTrap ninja = NinjaTrap("Ninja");
+	FragTrap frag = FragTrap("frag");
+	ScavTrap scav = ScavTrap("scav");
+
+	ninja.ninjaShoeBox(ninja);
+	ninja.ninjaShoeBox(scav);
+	ninja.ninjaShoeBox(frag);
+	ninja.meleeAttack("target");
+	ninja.rangedAttack("target");
+	ninja.takeDamage(20);
+	ninja.beRepaired(20);
+}
+
 int main(void)
 {
-	return (test_constructors() && test_assignation()) ? 0 : 1;
+	if (test_constructors() && test_assignation())
+	{
+		test_methods();
+		return 0;
+	}
+	return 1;
 }

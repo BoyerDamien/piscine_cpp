@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:25:40 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/27 12:30:13 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/02 12:14:36 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ ScavTrap::ScavTrap(const ScavTrap &other)
 	this->_hitPoint = other.getHP();
 	this->_maxHitPoint = 100;
 	this->_energyPoint = other.getEnergyPoint();
+	this->_maxEnergyPoint = 50;
 	this->_level = other.getLevel();
 	this->_meleeAttack = 20;
 	this->_rangedAttack = 15;
@@ -81,10 +82,11 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &other)
 			  << std::endl;
 	return *this;
 }
-/****************************************************************************
- * 				Getters
- ****************************************************************************/
-std::string ScavTrap::getName(void) const
+/******************************************************************************
+ *			                    Getters
+ ******************************************************************************/
+
+std::string ScavTrap::getName() const
 {
 	return this->_name;
 }
@@ -93,13 +95,40 @@ int ScavTrap::getHP(void) const
 {
 	return this->_hitPoint;
 }
+
+int ScavTrap::getMaxHP(void) const
+{
+	return this->_maxHitPoint;
+}
+
+int ScavTrap::getEnergyPoint(void) const
+{
+	return this->_energyPoint;
+}
+
+int ScavTrap::getMaxEnergyPoint(void) const
+{
+	return this->_maxEnergyPoint;
+}
+
 int ScavTrap::getLevel(void) const
 {
 	return this->_level;
 }
-int ScavTrap::getEnergyPoint(void) const
+
+int ScavTrap::getMeleeAttack(void) const
 {
-	return this->_energyPoint;
+	return this->_meleeAttack;
+}
+
+int ScavTrap::getArmorDamageReduction(void) const
+{
+	return this->_armorDamageReduction;
+}
+
+int ScavTrap::getRangedAttack(void) const
+{
+	return this->_rangedAttack;
 }
 
 /****************************************************************************
@@ -107,10 +136,10 @@ int ScavTrap::getEnergyPoint(void) const
  ****************************************************************************/
 void ScavTrap::challengeNewcomer() const
 {
-	const char *challenges[] = {"ice bucket challenge",
+	std::string challenges[] = {"ice bucket challenge",
 								"chicken bucket challenge",
 								"fingers bucket challenge"};
-	int index = 0 + std::rand() % 5;
+	int index = 0 + std::rand() % 3;
 	if (this->_hitPoint > 0)
 	{
 		std::cout << "ScavTrap " << this->_name << " launch the "
@@ -210,4 +239,49 @@ void ScavTrap::beRepaired(unsigned int amount)
 	}
 	std::cout << "ScavTrap " << this->_name << " has been repaired and has now "
 			  << this->_hitPoint << " of HP" << std::endl;
+}
+
+/******************************************************************************
+ *                      Operator overloading
+ *****************************************************************************/
+
+bool operator==(const ScavTrap &object1, const ScavTrap &object2)
+{
+	if (object1.getName() != object2.getName())
+	{
+		return false;
+	}
+	if (object1.getHP() != object2.getHP())
+	{
+		return false;
+	}
+	if (object1.getMaxHP() != object2.getHP())
+	{
+		return false;
+	}
+	if (object1.getEnergyPoint() != object2.getEnergyPoint())
+	{
+		return false;
+	}
+	if (object1.getMaxEnergyPoint() != object2.getMaxEnergyPoint())
+	{
+		return false;
+	}
+	if (object1.getLevel() != object2.getLevel())
+	{
+		return false;
+	}
+	if (object1.getMeleeAttack() != object2.getMeleeAttack())
+	{
+		return false;
+	}
+	if (object1.getRangedAttack() != object2.getRangedAttack())
+	{
+		return false;
+	}
+	if (object1.getArmorDamageReduction() != object2.getArmorDamageReduction())
+	{
+		return false;
+	}
+	return true;
 }

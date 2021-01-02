@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/27 11:53:25 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/28 19:40:25 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/02 11:03:13 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "./FragTrap.hpp"
 #include "./ScavTrap.hpp"
 
-class NinjaTrap : public ClapTrap
+class NinjaTrap : virtual public ClapTrap
 {
   public:
 	// Canonical form
@@ -32,6 +32,7 @@ class NinjaTrap : public ClapTrap
 	virtual void ninjaShoeBox(const ScavTrap &) const;
 	virtual void ninjaShoeBox(const NinjaTrap &) const;
 	virtual void ninjaShoeBox(const FragTrap &) const;
+	void meleeAttack(const std::string &);
 };
 
 #endif

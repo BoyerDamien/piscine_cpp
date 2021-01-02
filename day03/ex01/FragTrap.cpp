@@ -6,20 +6,20 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:25:40 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/27 12:29:08 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/02 11:56:44 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./FragTrap.hpp"
 #include <cstdlib>
 #include <iostream>
+#include <ostream>
 
 /******************************************************************************
  *			Constructors and destructor
  ******************************************************************************/
-FragTrap::FragTrap(void)
+FragTrap::FragTrap(void) : _name("Default")
 {
-	this->_name = "Default";
 	this->_hitPoint = 100;
 	this->_maxHitPoint = 100;
 	this->_energyPoint = 100;
@@ -82,10 +82,11 @@ FragTrap &FragTrap::operator=(FragTrap const &other)
 			  << std::endl;
 	return *this;
 }
-/****************************************************************************
- * 				Getters
- ****************************************************************************/
-std::string FragTrap::getName(void) const
+/******************************************************************************
+ *			                    Getters
+ ******************************************************************************/
+
+std::string FragTrap::getName() const
 {
 	return this->_name;
 }
@@ -94,13 +95,40 @@ int FragTrap::getHP(void) const
 {
 	return this->_hitPoint;
 }
+
+int FragTrap::getMaxHP(void) const
+{
+	return this->_maxHitPoint;
+}
+
+int FragTrap::getEnergyPoint(void) const
+{
+	return this->_energyPoint;
+}
+
+int FragTrap::getMaxEnergyPoint(void) const
+{
+	return this->_maxEnergyPoint;
+}
+
 int FragTrap::getLevel(void) const
 {
 	return this->_level;
 }
-int FragTrap::getEnergyPoint(void) const
+
+int FragTrap::getMeleeAttack(void) const
 {
-	return this->_energyPoint;
+	return this->_meleeAttack;
+}
+
+int FragTrap::getArmorDamageReduction(void) const
+{
+	return this->_armorDamageReduction;
+}
+
+int FragTrap::getRangedAttack(void) const
+{
+	return this->_rangedAttack;
 }
 
 /****************************************************************************
@@ -220,4 +248,49 @@ void FragTrap::beRepaired(unsigned int amount)
 	}
 	std::cout << "FragTrap " << this->_name << " has been repaired and has now "
 			  << this->_hitPoint << " of HP" << std::endl;
+}
+
+/******************************************************************************
+ *                      Operator overloading
+ *****************************************************************************/
+
+bool operator==(const FragTrap &object1, const FragTrap &object2)
+{
+	if (object1.getName() != object2.getName())
+	{
+		return false;
+	}
+	if (object1.getHP() != object2.getHP())
+	{
+		return false;
+	}
+	if (object1.getMaxHP() != object2.getHP())
+	{
+		return false;
+	}
+	if (object1.getEnergyPoint() != object2.getEnergyPoint())
+	{
+		return false;
+	}
+	if (object1.getMaxEnergyPoint() != object2.getMaxEnergyPoint())
+	{
+		return false;
+	}
+	if (object1.getLevel() != object2.getLevel())
+	{
+		return false;
+	}
+	if (object1.getMeleeAttack() != object2.getMeleeAttack())
+	{
+		return false;
+	}
+	if (object1.getRangedAttack() != object2.getRangedAttack())
+	{
+		return false;
+	}
+	if (object1.getArmorDamageReduction() != object2.getArmorDamageReduction())
+	{
+		return false;
+	}
+	return true;
 }

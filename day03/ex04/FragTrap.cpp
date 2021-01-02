@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:25:40 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/28 18:03:15 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/02 11:34:43 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,13 +79,14 @@ FragTrap &FragTrap::operator=(FragTrap const &other)
 	return *this;
 }
 /****************************************************************************
- *				specific attacks
+ *													specific attacks
  ****************************************************************************/
+
 void FragTrap::vaulthunter_dot_exe(const std::string &target)
 {
 	const char *attacks[] = {"lance flamme", "mimi-queue", "rugissement",
 							 "charge", "ultralaser"};
-	int index = 0 + std::rand() % 5;
+	int index = std::rand() % 5;
 	if (this->_hitPoint > 0)
 	{
 		if (this->_energyPoint >= 25)
@@ -104,5 +105,30 @@ void FragTrap::vaulthunter_dot_exe(const std::string &target)
 	else
 	{
 		std::cout << "FragTrap " << this->_name << " is dead" << std::endl;
+	}
+}
+
+void FragTrap::rangedAttack(const std::string &target)
+{
+	if (this->_hitPoint > 0)
+	{
+		if (this->_energyPoint > 0)
+		{
+			this->_energyPoint--;
+			std::cout
+				<< "(FragTrap method) " << this->_name << " attacks " << target
+				<< " with a rangedAttack and deals " << this->_rangedAttack
+				<< " points of dammage and lose 1 point of energy and has now "
+				<< this->_energyPoint << " of energy points" << std::endl;
+		}
+		else
+		{
+			std::cout << this->_name << " has no more energy and cannot attack"
+					  << std::endl;
+		}
+	}
+	else
+	{
+		std::cout << this->_name << " is dead" << std::endl;
 	}
 }

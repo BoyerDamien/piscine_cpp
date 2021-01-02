@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 14:25:09 by dboyer            #+#    #+#             */
-/*   Updated: 2020/12/27 11:46:29 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/02 12:01:52 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef SCAVTRAP_H
@@ -40,12 +40,20 @@ class ScavTrap
 	void meleeAttack(std::string const &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-
 	void challengeNewcomer(void) const;
+
+	// Getters
 	std::string getName(void) const;
 	int getHP(void) const;
-	int getLevel(void) const;
+	int getMaxHP(void) const;
 	int getEnergyPoint(void) const;
+	int getMaxEnergyPoint(void) const;
+	int getLevel(void) const;
+	int getMeleeAttack(void) const;
+	int getRangedAttack(void) const;
+	int getArmorDamageReduction(void) const;
 };
+
+bool operator==(const ScavTrap &, const ScavTrap &);
 
 #endif
