@@ -6,15 +6,14 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 18:49:49 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/02 19:09:15 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/04 16:21:52 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./PowerFist.hpp"
 #include "AWeapon.hpp"
 
-PowerFist::PowerFist(std::string const &name, int apcost, int damage)
-	: AWeapon(name, apcost, damage)
+PowerFist::PowerFist(void) : AWeapon("Power Fist", 8, 50)
 {
 }
 

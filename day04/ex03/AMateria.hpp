@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/02 17:39:12 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/04 14:26:58 by dboyer           ###   ########.fr       */
+/*   Created: 2021/01/05 14:56:57 by dboyer            #+#    #+#             */
+/*   Updated: 2021/01/05 15:12:18 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLASMARIFLE_H
-#define PLASMARIFLE_H
+#ifndef AMATERIA_H
+#define AMATERIA_H
 
-#include "./AWeapon.hpp"
+#include "./ICharacter.hpp"
+#include <iostream>
 
-class PlasmaRifle : public AWeapon
+class AMateria
 {
   private:
-	PlasmaRifle(std::string const &);
+	unsigned int _xp;
+	std::string _type;
 
   public:
-	PlasmaRifle(void);
-	PlasmaRifle(PlasmaRifle const &);
-	PlasmaRifle &operator=(PlasmaRifle const &);
-	virtual ~PlasmaRifle(void);
+	AMateria(void);
+	AMateria(AMateria const &);
+	AMateria(std::string const &type);
+	~AMateria();
 
 	// Methods
-	void attack(void) const;
+	std::string const &getType() const;
+	virtual AMateria *clone() const = 0;
+	virtual void use(ICharacter &target);
 };
 
 #endif

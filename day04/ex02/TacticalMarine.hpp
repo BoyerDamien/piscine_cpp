@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
+/*   TacticalMarine.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/02 17:39:12 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/04 14:26:58 by dboyer           ###   ########.fr       */
+/*   Created: 2021/01/05 11:41:09 by dboyer            #+#    #+#             */
+/*   Updated: 2021/01/05 12:24:50 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLASMARIFLE_H
-#define PLASMARIFLE_H
+#ifndef TACTICALMARINE_H
+#define TACTICALMARINE_H
 
-#include "./AWeapon.hpp"
+#include "ISpaceMarine.hpp"
+#include <iostream>
 
-class PlasmaRifle : public AWeapon
+class TacticalMarine : public ISpaceMarine
 {
-  private:
-	PlasmaRifle(std::string const &);
-
   public:
-	PlasmaRifle(void);
-	PlasmaRifle(PlasmaRifle const &);
-	PlasmaRifle &operator=(PlasmaRifle const &);
-	virtual ~PlasmaRifle(void);
+	TacticalMarine(void);
+	TacticalMarine(TacticalMarine const &);
+	TacticalMarine &operator=(TacticalMarine const &);
+	virtual ~TacticalMarine();
 
 	// Methods
-	void attack(void) const;
+	ISpaceMarine *clone() const;
+	void battleCry() const;
+	void rangedAttack() const;
+	void meleeAttack() const;
 };
 
 #endif

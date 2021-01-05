@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 19:00:33 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/02 19:35:20 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/04 15:26:50 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Enemy
 	Enemy(int, std::string const &);
 	Enemy(Enemy const &);
 	Enemy &operator=(Enemy const &);
-	~Enemy(void);
+	virtual ~Enemy(void);
 
 	// Getters
 	std::string getType(void) const;

@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 19:14:39 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/02 19:36:37 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/04 15:25:22 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 /******************************************************************************
  *				Constructors
  *****************************************************************************/
-Enemy::Enemy(int hp, std::string const &type) : _hp(hp), _type(type)
+Enemy::Enemy(int hp, std::string const &type) : _type(type), _hp(hp)
 {
 }
 
-Enemy::Enemy(Enemy const &other) : _hp(other.getHP()), _type(other.getType())
+Enemy::Enemy(Enemy const &other) : _type(other.getType()), _hp(other.getHP())
 {
 }
 
@@ -69,5 +69,9 @@ void Enemy::takeDamage(int damage)
 	if (damage > 0 && this->_hp > 0)
 	{
 		this->_hp = this->_hp - damage;
+	}
+	if (this->_hp == 0)
+	{
+		Enemy::~Enemy();
 	}
 }

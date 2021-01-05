@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
+/*   RadScorpion.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/02 17:39:12 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/04 14:26:58 by dboyer           ###   ########.fr       */
+/*   Created: 2021/01/04 14:31:20 by dboyer            #+#    #+#             */
+/*   Updated: 2021/01/04 15:26:01 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLASMARIFLE_H
-#define PLASMARIFLE_H
+#ifndef RADSCORPION_H
+#define RADSCORPION_H
 
-#include "./AWeapon.hpp"
+#include "./Enemy.hpp"
 
-class PlasmaRifle : public AWeapon
+class RadScorpion : public Enemy
 {
   private:
-	PlasmaRifle(std::string const &);
+	RadScorpion(std::string const &);
 
   public:
-	PlasmaRifle(void);
-	PlasmaRifle(PlasmaRifle const &);
-	PlasmaRifle &operator=(PlasmaRifle const &);
-	virtual ~PlasmaRifle(void);
-
-	// Methods
-	void attack(void) const;
+	RadScorpion(void);
+	RadScorpion(RadScorpion const &);
+	RadScorpion &operator=(RadScorpion const &);
+	virtual ~RadScorpion(void);
 };
 
 #endif

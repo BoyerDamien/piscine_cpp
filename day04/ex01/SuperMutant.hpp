@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
+/*   SuperMutant.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/02 17:39:12 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/04 14:26:58 by dboyer           ###   ########.fr       */
+/*   Created: 2021/01/04 14:13:02 by dboyer            #+#    #+#             */
+/*   Updated: 2021/01/04 14:30:46 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLASMARIFLE_H
-#define PLASMARIFLE_H
+#ifndef SUPERMUTANT_H
+#define SUPERMUTANT_H
 
-#include "./AWeapon.hpp"
+#include "./Enemy.hpp"
+#include <iostream>
 
-class PlasmaRifle : public AWeapon
+class SuperMutant : public Enemy
 {
   private:
-	PlasmaRifle(std::string const &);
+	SuperMutant(std::string const &);
 
   public:
-	PlasmaRifle(void);
-	PlasmaRifle(PlasmaRifle const &);
-	PlasmaRifle &operator=(PlasmaRifle const &);
-	virtual ~PlasmaRifle(void);
+	SuperMutant(void);
+	SuperMutant(SuperMutant const &);
+	SuperMutant &operator=(SuperMutant const &);
+	virtual ~SuperMutant(void);
 
 	// Methods
-	void attack(void) const;
+	void takeDamage(int);
 };
 
 #endif

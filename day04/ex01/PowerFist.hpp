@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 18:46:50 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/02 18:51:29 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/04 14:27:07 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 class PowerFist : public AWeapon
 {
   private:
-	PowerFist(void);
+	PowerFist(std::string const &);
 
   public:
-	PowerFist(std::string const &, int, int);
+	PowerFist(void);
 	PowerFist(PowerFist const &);
 	PowerFist &operator=(PowerFist const &);
-	~PowerFist(void);
+	virtual ~PowerFist(void);
 
 	void attack(void) const;
 };

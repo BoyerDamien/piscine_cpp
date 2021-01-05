@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 17:29:05 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/02 19:07:25 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/04 16:24:48 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@ AWeapon::AWeapon(std::string const &name, int apcost, int damage)
 {
 	std::cout << "Weapon " << this->_name << " -- " << this->_apcost << " -- "
 			  << this->_damage << " was created" << std::endl;
+}
+
+AWeapon::AWeapon(AWeapon const &other)
+	: _name(other.getName()), _apcost(other.getAPCost()),
+	  _damage(other.getDamage())
+{
 }
 
 AWeapon &AWeapon::operator=(AWeapon const &other)
