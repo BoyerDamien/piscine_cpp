@@ -6,15 +6,14 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 14:59:59 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/05 15:12:27 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/06 14:17:59 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICHARACTER_H
 #define ICHARACTER_H
+#include "./AMateria.hpp"
 #include <iostream>
-
-class AMateria;
 
 class ICharacter
 {

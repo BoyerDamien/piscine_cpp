@@ -1,46 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/02 19:00:33 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/07 09:17:07 by dboyer           ###   ########.fr       */
+/*   Created: 2021/01/06 09:51:06 by dboyer            #+#    #+#             */
+/*   Updated: 2021/01/06 10:21:28 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENEMY_H
-#define ENEMY_H
+#ifndef ICE_H
+#define ICE_H
 
-#include <iostream>
+#include "./AMateria.hpp"
+#include "ICharacter.hpp"
 
-class Enemy
+class Ice : public AMateria
 {
   private:
-	std::string _type;
-	int _hp;
-
-	Enemy(void);
+	Ice(std::string const &);
 
   public:
-	// Constructors
-	Enemy(int, std::string const &);
-	Enemy(Enemy const &);
-	Enemy &operator=(Enemy const &);
-	virtual ~Enemy(void);
-
-	// Getters
-	std::string getType(void) const;
-	int getHP(void) const;
-
-	// Setters
-	void setHP(int);
-	void setType(std::string const &);
+	Ice(void);
+	Ice(Ice const &);
+	Ice &operator=(AMateria const &);
+	virtual ~Ice();
 
 	// Methods
-	virtual void takeDamage(int);
+	void use(ICharacter &);
+	AMateria *clone() const;
 };
 
-bool operator==(Enemy const &, Enemy const &);
 #endif

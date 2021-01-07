@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 14:50:15 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/04 16:26:09 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/07 09:39:19 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ Character &Character::operator=(const Character &other)
 
 Character::~Character(void)
 {
+	if (this->_weapon)
+	{
+		delete this->_weapon;
+	}
 }
 
 /******************************************************************************
@@ -94,4 +98,10 @@ std::ostream &operator<<(std::ostream &os, Character const &character)
 	else
 		os << " AP and is unarmed";
 	return os << std::endl;
+}
+
+bool operator==(Character const &c1, Character const &c2)
+{
+	return c1.getAP() == c2.getAP() && c1.getName() == c2.getName() &&
+		   c1.getWeapon() == c2.getWeapon();
 }

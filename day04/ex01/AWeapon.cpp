@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 17:29:05 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/04 16:24:48 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/06 15:47:40 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,10 @@ void AWeapon::setDamage(int damage)
 void AWeapon::setName(std::string name)
 {
 	this->_name = name;
+}
+
+bool operator==(AWeapon const &w1, AWeapon const &w2)
+{
+	return w1.getName() == w2.getName() && w1.getAPCost() == w2.getAPCost() &&
+		   w1.getDamage() == w2.getDamage();
 }

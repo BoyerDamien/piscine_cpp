@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 10:36:24 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/05 12:36:30 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/07 10:45:30 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,4 @@ class Squad : public ISquad
 };
 
 std::ostream &operator<<(std::ostream &, ISquad const *);
-
 #endif

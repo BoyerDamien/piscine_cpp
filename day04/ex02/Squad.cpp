@@ -6,33 +6,38 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 10:45:10 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/05 12:45:20 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/07 11:07:20 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./Squad.hpp"
 #include "ISpaceMarine.hpp"
 
+static ISpaceMarine **deepCopy(ISpaceMarine **_table, int count)
+{
+	ISpaceMarine **ret = new ISpaceMarine *[count];
+	for (int i = 0; i < count; i++)
+	{
+		ret[i] = _table[i]->clone();
+	}
+	return ret;
+}
+
 Squad::Squad(void) : _n(0), _content(NULL)
 {
 }
 
 Squad::Squad(Squad const &other)
-	: _n(other.getCount()), _content(other.getContent())
+	: _n(other.getCount()),
+	  _content(deepCopy(other.getContent(), other.getCount()))
 {
 }
 
 Squad &Squad::operator=(Squad const &other)
 {
-	ISpaceMarine **tmp = other.getContent();
 	this->_cleanSquad();
-
 	this->_n = other.getCount();
-	this->_content = new ISpaceMarine *[this->_n];
-	for (int i = 0; i < this->_n; i++)
-	{
-		this->_content[i] = tmp[i]->clone();
-	}
+	this->_content = deepCopy(other.getContent(), this->_n);
 	return *this;
 }
 
@@ -84,7 +89,7 @@ static bool isExists(ISpaceMarine **content, ISpaceMarine *marine, int n)
 
 void Squad::_cleanSquad(void)
 {
-	if (this->_content)
+	if (this->_content && this->_n > 0)
 	{
 		for (int i = 0; i < this->_n; i++)
 		{

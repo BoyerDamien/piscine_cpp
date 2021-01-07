@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 15:37:35 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/02 16:51:47 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/06 15:13:13 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,9 @@ void Sorcerer::polymorph(Victim const &vic) const
 std::ostream &operator<<(std::ostream &os, Sorcerer const &sorc)
 {
 	return os << sorc.introduce();
+}
+
+bool operator==(Sorcerer const &s1, Sorcerer const &s2)
+{
+	return s1.getName() == s2.getName() && s1.getTitle() == s2.getTitle();
 }

@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 15:33:51 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/02 19:12:39 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/06 15:12:17 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ class Sorcerer
 	std::string getTitle(void) const;
 };
 
+// Operator overloading
+bool operator==(Sorcerer const &, Sorcerer const &);
 std::ostream &operator<<(std::ostream &, Sorcerer const &);
 
 #endif

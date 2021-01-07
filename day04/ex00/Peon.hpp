@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 16:14:15 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/02 18:27:41 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/06 15:34:11 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ class Peon : public Victim
 	Peon(std::string);
 	Peon(Peon const &);
 	Peon &operator=(Peon const &);
-	~Peon(void);
+	virtual ~Peon(void);
 
 	// Methods override
 	void getPolymorphed(void) const;
 };
+
+bool operator==(Peon const &, Peon const &);
 
 #endif

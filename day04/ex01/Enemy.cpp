@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 19:14:39 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/04 15:25:22 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/07 09:18:00 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,9 @@ void Enemy::takeDamage(int damage)
 	{
 		Enemy::~Enemy();
 	}
+}
+
+bool operator==(Enemy const &e1, Enemy const &e2)
+{
+	return e1.getHP() == e2.getHP() && e1.getType() == e2.getType();
 }

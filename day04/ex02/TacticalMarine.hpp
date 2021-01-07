@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/05 11:41:09 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/05 12:24:50 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/07 10:44:38 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,4 @@ class TacticalMarine : public ISpaceMarine
 	void rangedAttack() const;
 	void meleeAttack() const;
 };
-
 #endif

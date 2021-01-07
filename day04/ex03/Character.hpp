@@ -5,47 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/04 14:41:38 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/07 09:30:02 by dboyer           ###   ########.fr       */
+/*   Created: 2021/01/06 10:37:34 by dboyer            #+#    #+#             */
+/*   Updated: 2021/01/07 12:40:11 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_H
 #define CHARACTER_H
 
-#include "AWeapon.hpp"
-#include "Enemy.hpp"
-#include <iostream>
-#include <ostream>
+#include "./ICharacter.hpp"
 
-class Character
+class Character : public ICharacter
 {
   private:
-	// Attributes
 	std::string _name;
-	AWeapon *_weapon;
-	int _AP;
-
-	// Default constructor
+	AMateria **_materias;
 	Character(void);
 
   public:
 	Character(std::string const &);
 	Character(Character const &);
 	Character &operator=(Character const &);
-	~Character(void);
+	virtual ~Character();
 
 	// Methods
-	void recoveryAP(void);
-	void equip(AWeapon *);
-	void attack(Enemy *);
+	void equip(AMateria *);
+	void unequip(int);
+	void use(int, ICharacter &);
 
 	// Getters
-	std::string getName(void) const;
-	AWeapon *getWeapon(void) const;
-	int getAP(void) const;
+	std::string const &getName() const;
+	AMateria **getMaterias() const;
 };
 
-std::ostream &operator<<(std::ostream &, Character const &);
 bool operator==(Character const &, Character const &);
 #endif

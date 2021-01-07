@@ -6,7 +6,7 @@
 /*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/02 16:59:03 by dboyer            #+#    #+#             */
-/*   Updated: 2021/01/02 19:05:17 by dboyer           ###   ########.fr       */
+/*   Updated: 2021/01/06 15:45:55 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,5 @@ class AWeapon
 	virtual void attack(void) const = 0;
 };
 
+bool operator==(AWeapon const &, AWeapon const &);
 #endif
