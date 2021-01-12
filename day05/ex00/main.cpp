@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 14:09:08 by root              #+#    #+#             */
-/*   Updated: 2021/01/12 15:08:55 by root             ###   ########.fr       */
+/*   Updated: 2021/01/12 15:58:10 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Bureaucrat.hpp"
@@ -93,6 +93,8 @@ bool test_methods()
 
 	Bureaucrat b2("test2", 150);
 	b2.decrement();
+
+	std::cout << b2 << std::endl;
 
 	return result && b2.getGrade() == 150;
 }

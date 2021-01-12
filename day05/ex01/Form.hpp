@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 15:15:37 by root              #+#    #+#             */
-/*   Updated: 2021/01/12 15:42:41 by root             ###   ########.fr       */
+/*   Updated: 2021/01/12 15:54:58 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "Bureaucrat.hpp"
 #include <iostream>
+#include <ostream>
 
 class Bureaucrat;
 
@@ -63,5 +64,8 @@ class Form
 		const char *what(void) const throw();
 	};
 };
+
+bool operator==(Form const &, Form const &);
+std::ostream &operator<<(std::ostream &, Form const &);
 
 #endif

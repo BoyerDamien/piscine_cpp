@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 12:24:21 by root              #+#    #+#             */
-/*   Updated: 2021/01/12 14:11:53 by root             ###   ########.fr       */
+/*   Updated: 2021/01/12 15:59:15 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ class Bureaucrat
 	};
 };
 
-std::ostream &operator<<(std::ostream const &, Bureaucrat const &);
+std::ostream &operator<<(std::ostream &, Bureaucrat const &);
 bool operator==(Bureaucrat const &, Bureaucrat const &);
 
 #endif

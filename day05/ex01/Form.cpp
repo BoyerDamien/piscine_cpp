@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 15:25:52 by root              #+#    #+#             */
-/*   Updated: 2021/01/12 15:49:43 by root             ###   ########.fr       */
+/*   Updated: 2021/01/12 15:57:36 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,18 @@ const char *Form::GradeTooHighException::what() const throw()
 const char *Form::GradeTooLowException::what() const throw()
 {
 	return "Grade too low";
+}
+
+bool operator==(Form const &f1, Form const &f2)
+{
+	return f1.getGradeToExec() == f2.getGradeToExec() &&
+		   f1.getGradeToSign() == f2.getGradeToSign() &&
+		   f1.getName() == f2.getName();
+}
+
+std::ostream &operator<<(std::ostream &os, Form const &f)
+{
+	return os << "Name: " << f.getName()
+			  << " Grade to exec :" << f.getGradeToExec()
+			  << " Grade to sign: " << f.getGradeToSign() << std::endl;
 }
