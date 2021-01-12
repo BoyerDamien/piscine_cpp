@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 12:34:52 by root              #+#    #+#             */
-/*   Updated: 2021/01/12 14:16:08 by root             ###   ########.fr       */
+/*   Updated: 2021/01/12 14:57:50 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const &other)
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
+	(void)other;
 	return *this;
 }
 
@@ -97,7 +98,7 @@ std::ostream &operator<<(std::ostream &os, Bureaucrat const &b)
 	return os << b.getName() << " , bureaucrat grade " << b.getGrade();
 }
 
-bool operator==(Bureaucrat const &, Bureaucrat const &)
+bool operator==(Bureaucrat const &b1, Bureaucrat const &b2)
 {
-	return
+	return b1.getGrade() == b2.getGrade() && b1.getName() == b2.getName();
 }
