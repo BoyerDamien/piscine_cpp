@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 14:09:08 by root              #+#    #+#             */
-/*   Updated: 2021/01/12 16:06:30 by root             ###   ########.fr       */
+/*   Updated: 2021/01/12 16:28:03 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Bureaucrat.hpp"
@@ -65,6 +65,47 @@ bool test_form_methods()
 	return result && !f2.isSigned();
 }
 
+bool test_exceptions()
+{
+	bool result = false;
+	try
+	{
+		Form f("f", -1, 1);
+	}
+	catch (std::exception &e)
+	{
+		result = true;
+	}
+	try
+	{
+		Form f("f", 1, -1);
+		result = false;
+	}
+	catch (std::exception &e)
+	{
+		result = result && true;
+	}
+	try
+	{
+		Form f("f", 151, 1);
+		result = false;
+	}
+	catch (std::exception &e)
+	{
+		result = result && true;
+	}
+	try
+	{
+		Form f("f", 1, 151);
+		result = false;
+	}
+	catch (std::exception &e)
+	{
+		result = result && true;
+	}
+	return result;
+}
+
 int main(void)
 {
 	// Test form attributes
@@ -75,5 +116,8 @@ int main(void)
 
 	// Test form methods
 	show_result("Test form methods", test_form_methods());
+
+	// Test form exceptions
+	show_result("Test for exceptions", test_exceptions());
 	return 0;
 }
