@@ -6,12 +6,13 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 12:34:52 by root              #+#    #+#             */
-/*   Updated: 2021/01/12 15:48:38 by root             ###   ########.fr       */
+/*   Updated: 2021/01/14 11:14:02 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
+#include <exception>
 #include <string>
 
 /******************************************************************************
@@ -92,6 +93,18 @@ void Bureaucrat::signForm(Form &f)
 	}
 }
 
+void Bureaucrat::executeForm(Form const &form)
+{
+	try
+	{
+		form.execute((const Bureaucrat)(*this));
+		std::cout << this->_name << " executs " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+}
 /******************************************************************************
  *				Getters
  *****************************************************************************/
@@ -106,7 +119,7 @@ int Bureaucrat::getGrade() const
 }
 
 /******************************************************************************
- *				Getters
+ *				Operator overloading
  *****************************************************************************/
 std::ostream &operator<<(std::ostream &os, Bureaucrat const &b)
 {

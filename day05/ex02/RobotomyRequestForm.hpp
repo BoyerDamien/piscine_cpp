@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/12 16:31:42 by root              #+#    #+#             */
-/*   Updated: 2021/01/14 10:41:10 by root             ###   ########.fr       */
+/*   Created: 2021/01/14 09:33:47 by root              #+#    #+#             */
+/*   Updated: 2021/01/14 10:50:41 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATION_H
-#define SHRUBBERYCREATION_H
+#ifndef ROBOTOMYREQUESTFORM_H
+#define ROBOTOMYREQUESTFORM_H
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
-class ShrubberyCreationForm : public Form
+class RobotomyRequestForm : public Form
 {
   private:
-	ShrubberyCreationForm(void); // Private default constructor
+	RobotomyRequestForm(void); // Private default constructor
 
   public:
-	ShrubberyCreationForm(std::string const &) throw(Form::IGradeException);
-	ShrubberyCreationForm(ShrubberyCreationForm const &);
-	ShrubberyCreationForm &operator=(ShrubberyCreationForm const &);
-	~ShrubberyCreationForm(void);
+	RobotomyRequestForm(std::string const &) throw(Form::IGradeException);
+	RobotomyRequestForm(RobotomyRequestForm const &);
+	RobotomyRequestForm &operator=(RobotomyRequestForm const &);
+	~RobotomyRequestForm(void);
 
+	// Methods
 	void doExec(Bureaucrat const &executor);
 };
 

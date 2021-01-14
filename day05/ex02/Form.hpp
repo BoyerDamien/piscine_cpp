@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 15:15:37 by root              #+#    #+#             */
-/*   Updated: 2021/01/12 15:54:58 by root             ###   ########.fr       */
+/*   Updated: 2021/01/14 11:04:41 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define FORM_H
 
 #include "Bureaucrat.hpp"
+#include <exception>
 #include <iostream>
 #include <ostream>
 
@@ -23,6 +24,7 @@ class Form
 {
   private:
 	std::string const _name;
+	std::string _target;
 	bool _isSigned;
 	int const _gradeToSign;
 	int const _gradeToExec;
@@ -30,7 +32,7 @@ class Form
 	Form(); // Private default constructor
 
   public:
-	Form(std::string const &, int const,
+	Form(std::string const &, std::string const &, int const,
 		 int const) throw(Form::IGradeException);
 	Form(Form const &);
 	Form &operator=(Form const &);
@@ -38,12 +40,15 @@ class Form
 
 	// Getters
 	std::string getName() const;
+	std::string getTarget() const;
 	bool isSigned() const;
 	int getGradeToSign() const;
 	int getGradeToExec() const;
 
 	// Methods
 	void beSigned(Bureaucrat const &) throw(Form::IGradeException);
+	void execute(Bureaucrat const &executor) throw(Form::IGradeException);
+	virtual void doExec(Bureaucrat const &executor) = 0;
 
 	// Nested exception
 	class IGradeException : public std::exception
@@ -59,6 +64,12 @@ class Form
 	};
 
 	class GradeTooHighException : public IGradeException
+	{
+	  public:
+		const char *what(void) const throw();
+	};
+
+	class IsNotSignedException : public std::exception
 	{
 	  public:
 		const char *what(void) const throw();

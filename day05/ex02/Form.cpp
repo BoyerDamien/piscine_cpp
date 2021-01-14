@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 15:25:52 by root              #+#    #+#             */
-/*   Updated: 2021/01/12 15:57:36 by root             ###   ########.fr       */
+/*   Updated: 2021/01/14 11:05:14 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 /******************************************************************************
  *				Constructors
  *****************************************************************************/
-Form::Form(std::string const &name, int const gradeToSign,
+Form::Form(std::string const &name, std::string const &target,
+		   int const gradeToSign,
 		   int const gradeToExec) throw(Form::IGradeException)
-	: _name(name), _isSigned(false), _gradeToSign(gradeToSign),
+	: _name(name), _target(target), _isSigned(false), _gradeToSign(gradeToSign),
 	  _gradeToExec(gradeToExec)
 {
 	if (gradeToSign < 1 || gradeToExec < 1)
@@ -31,14 +32,15 @@ Form::Form(std::string const &name, int const gradeToSign,
 }
 
 Form::Form(Form const &other)
-	: _name(other.getName()), _isSigned(other.isSigned()),
-	  _gradeToSign(other.getGradeToSign()), _gradeToExec(other.getGradeToExec())
+	: _name(other.getName()), _target(other.getTarget()),
+	  _isSigned(other.isSigned()), _gradeToSign(other.getGradeToSign()),
+	  _gradeToExec(other.getGradeToExec())
 {
 }
 
 Form &Form::operator=(Form const &other)
 {
-	(void)other;
+	this->_target = other.getTarget();
 	return *this;
 }
 
@@ -70,6 +72,11 @@ int Form::getGradeToSign() const
 	return this->_gradeToSign;
 }
 
+std::string Form::getTarget() const
+{
+	return this->_target;
+}
+
 /******************************************************************************
  *				Methods
  *****************************************************************************/
@@ -78,6 +85,25 @@ void Form::beSigned(Bureaucrat const &b) throw(Form::IGradeException)
 	if (b.getGrade() < this->_gradeToSign)
 	{
 		this->_isSigned = true;
+	}
+	else
+	{
+		throw(Form::GradeTooLowException());
+	}
+}
+
+void Form::execute(Bureaucrat const &executor) throw(Form::IGradeException)
+{
+	if (executor.getGrade() <= this->_gradeToExec)
+	{
+		if (this->_isSigned)
+		{
+			this->doExec(executor);
+		}
+		else
+		{
+			throw(Form::IsNotSignedException());
+		}
 	}
 	else
 	{
@@ -98,6 +124,14 @@ const char *Form::GradeTooLowException::what() const throw()
 	return "Grade too low";
 }
 
+const char *Form::IsNotSignedException::what() const throw()
+{
+	return "Form not signed";
+}
+
+/******************************************************************************
+ *			Operator overloading
+ *****************************************************************************/
 bool operator==(Form const &f1, Form const &f2)
 {
 	return f1.getGradeToExec() == f2.getGradeToExec() &&

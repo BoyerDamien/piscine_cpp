@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 12:24:21 by root              #+#    #+#             */
-/*   Updated: 2021/01/12 15:48:11 by root             ###   ########.fr       */
+/*   Updated: 2021/01/14 11:10:10 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ class Bureaucrat
 	void intcrement(void);
 	void decrement(void);
 	void signForm(Form &);
+	void executeForm(Form const &form);
 
 	// Nested exception
 	class IGradeException : public std::exception
