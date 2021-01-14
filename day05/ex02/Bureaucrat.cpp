@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 12:34:52 by root              #+#    #+#             */
-/*   Updated: 2021/01/14 11:14:02 by root             ###   ########.fr       */
+/*   Updated: 2021/01/14 11:30:26 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,11 +93,11 @@ void Bureaucrat::signForm(Form &f)
 	}
 }
 
-void Bureaucrat::executeForm(Form const &form)
+void Bureaucrat::executeForm(Form const &form) const
 {
 	try
 	{
-		form.execute((const Bureaucrat)(*this));
+		form.execute(*this);
 		std::cout << this->_name << " executs " << form.getName() << std::endl;
 	}
 	catch (std::exception &e)

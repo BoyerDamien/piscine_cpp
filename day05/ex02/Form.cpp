@@ -6,11 +6,12 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 15:25:52 by root              #+#    #+#             */
-/*   Updated: 2021/01/14 11:05:14 by root             ###   ########.fr       */
+/*   Updated: 2021/01/14 11:43:04 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include <exception>
 
 /******************************************************************************
  *				Constructors
@@ -92,7 +93,7 @@ void Form::beSigned(Bureaucrat const &b) throw(Form::IGradeException)
 	}
 }
 
-void Form::execute(Bureaucrat const &executor) throw(Form::IGradeException)
+void Form::execute(Bureaucrat const &executor) const throw(std::exception)
 {
 	if (executor.getGrade() <= this->_gradeToExec)
 	{

@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 09:59:17 by root              #+#    #+#             */
-/*   Updated: 2021/01/14 11:08:45 by root             ###   ########.fr       */
+/*   Updated: 2021/01/14 11:37:13 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ PresidentialPardonForm::PresidentialPardonForm(
 PresidentialPardonForm &PresidentialPardonForm::operator=(
 	const PresidentialPardonForm &other)
 {
+	(void)other;
 	return *this;
 }
 
@@ -45,8 +46,9 @@ PresidentialPardonForm::~PresidentialPardonForm()
 /******************************************************************************
  *			Methods
  *****************************************************************************/
-void PresidentialPardonForm::doExec(const Bureaucrat &executor)
+void PresidentialPardonForm::doExec(const Bureaucrat &executor) const
 {
+	(void)executor;
 	std::cout << this->getTarget() << " has been pardoned by Zafod Beeblebrox"
 			  << std::endl;
 }

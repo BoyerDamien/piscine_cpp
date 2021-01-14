@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 15:15:37 by root              #+#    #+#             */
-/*   Updated: 2021/01/14 11:04:41 by root             ###   ########.fr       */
+/*   Updated: 2021/01/14 11:43:25 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ class Form
 
 	// Methods
 	void beSigned(Bureaucrat const &) throw(Form::IGradeException);
-	void execute(Bureaucrat const &executor) throw(Form::IGradeException);
-	virtual void doExec(Bureaucrat const &executor) = 0;
+	void execute(Bureaucrat const &executor) const throw(std::exception);
+	virtual void doExec(Bureaucrat const &executor) const = 0;
 
 	// Nested exception
 	class IGradeException : public std::exception

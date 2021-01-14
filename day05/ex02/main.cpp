@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 14:09:08 by root              #+#    #+#             */
-/*   Updated: 2021/01/14 11:16:28 by root             ###   ########.fr       */
+/*   Updated: 2021/01/14 11:40:46 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "Bureaucrat.hpp"
@@ -38,4 +38,8 @@ int main(void)
 {
 	Bureaucrat b("test", 1);
 	ShrubberyCreationForm sh("target sh");
+
+	// b.signForm(sh);
+
+	b.executeForm(sh);
 }

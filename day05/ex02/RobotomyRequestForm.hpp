@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 09:33:47 by root              #+#    #+#             */
-/*   Updated: 2021/01/14 10:50:41 by root             ###   ########.fr       */
+/*   Updated: 2021/01/14 11:32:47 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class RobotomyRequestForm : public Form
 	~RobotomyRequestForm(void);
 
 	// Methods
-	void doExec(Bureaucrat const &executor);
+	void doExec(Bureaucrat const &executor) const;
 };
 
 #endif

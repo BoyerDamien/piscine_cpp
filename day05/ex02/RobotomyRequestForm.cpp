@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 09:37:12 by root              #+#    #+#             */
-/*   Updated: 2021/01/14 11:07:59 by root             ###   ########.fr       */
+/*   Updated: 2021/01/14 11:37:44 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(
 	RobotomyRequestForm const &other)
 {
 	std::srand(time(NULL));
+	(void)other;
 	return *this;
 }
 
@@ -47,8 +48,9 @@ RobotomyRequestForm::~RobotomyRequestForm()
  *			Methods
  *****************************************************************************/
 
-void RobotomyRequestForm::doExec(Bureaucrat const &executor)
+void RobotomyRequestForm::doExec(Bureaucrat const &executor) const
 {
+	(void)executor;
 	if (std::rand() % 2)
 	{
 		std::cout << "Bruit de perceuse... " << this->getTarget()

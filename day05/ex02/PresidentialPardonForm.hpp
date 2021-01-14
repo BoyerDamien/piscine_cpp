@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 09:56:35 by root              #+#    #+#             */
-/*   Updated: 2021/01/14 10:50:56 by root             ###   ########.fr       */
+/*   Updated: 2021/01/14 11:33:04 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class PresidentialPardonForm : public Form
 	PresidentialPardonForm &operator=(PresidentialPardonForm const &);
 	~PresidentialPardonForm(void);
 
-	void doExec(Bureaucrat const &executor);
+	void doExec(Bureaucrat const &executor) const;
 };
 
 #endif

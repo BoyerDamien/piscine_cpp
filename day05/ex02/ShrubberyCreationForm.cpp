@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 08:59:30 by root              #+#    #+#             */
-/*   Updated: 2021/01/14 11:06:21 by root             ###   ########.fr       */
+/*   Updated: 2021/01/14 11:39:16 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,11 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 /******************************************************************************
  *				Methods
  *****************************************************************************/
-void ShrubberyCreationForm::doExec(const Bureaucrat &executor)
+void ShrubberyCreationForm::doExec(const Bureaucrat &executor) const
 {
+	(void)executor;
 	std::string fileName = this->getTarget() + "_shrubbery";
-	std::ofstream file(fileName);
+	std::ofstream file(fileName.c_str());
 	if (file.is_open())
 	{
 		file << "		          .     .  .      +     .      .          .\n\
