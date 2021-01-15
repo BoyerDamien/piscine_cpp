@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 08:59:30 by root              #+#    #+#             */
-/*   Updated: 2021/01/14 11:39:16 by root             ###   ########.fr       */
+/*   Updated: 2021/01/15 08:49:59 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) throw(
 	Form::IGradeException)
-	: Form("Shruberry", target, 145, 137)
+	: Form("Shrubbery", target, 145, 137)
 {
 }
 
