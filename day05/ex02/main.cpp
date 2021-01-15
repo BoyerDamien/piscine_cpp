@@ -35,7 +35,7 @@ void show_result(std::string message, bool status)
 	std::cerr << SEPARATOR << std::endl;
 }
 
-bool test_one_attribute(Form const &f, std::string const &name,
+bool test_one_attribute(AForm const &f, std::string const &name,
 						std::string const &target, int const sign,
 						int const exec)
 {
@@ -83,24 +83,24 @@ bool test_forms_methods(void)
 	Bureaucrat b1("b1", 1);
 
 	// Test exec non signed forms
-	b1.executeForm(sh);
-	b1.executeForm(p);
-	b1.executeForm(rb);
+	b1.executeAForm(sh);
+	b1.executeAForm(p);
+	b1.executeAForm(rb);
 
 	// Test exec signed forms
-	b1.signForm(sh);
-	b1.signForm(p);
-	b1.signForm(rb);
+	b1.signAForm(sh);
+	b1.signAForm(p);
+	b1.signAForm(rb);
 
-	b1.executeForm(sh);
-	b1.executeForm(p);
-	b1.executeForm(rb);
+	b1.executeAForm(sh);
+	b1.executeAForm(p);
+	b1.executeAForm(rb);
 
 	Bureaucrat b2("b2", 150);
 
-	b2.executeForm(sh);
-	b2.executeForm(p);
-	b2.executeForm(rb);
+	b2.executeAForm(sh);
+	b2.executeAForm(p);
+	b2.executeAForm(rb);
 
 	return true;
 }

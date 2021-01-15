@@ -14,15 +14,15 @@
 #define PRESIDENTIALPARDONFORM_H
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class PresidentialPardonForm : public Form
+class PresidentialPardonForm : public AForm
 {
   private:
 	PresidentialPardonForm(void); // Private default constructor
 
   public:
-	PresidentialPardonForm(std::string const &) throw(Form::IGradeException);
+	PresidentialPardonForm(std::string const &) throw(AForm::IGradeException);
 	PresidentialPardonForm(PresidentialPardonForm const &);
 	PresidentialPardonForm &operator=(PresidentialPardonForm const &);
 	~PresidentialPardonForm(void);

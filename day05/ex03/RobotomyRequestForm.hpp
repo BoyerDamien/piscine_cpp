@@ -14,15 +14,15 @@
 #define ROBOTOMYREQUESTFORM_H
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class RobotomyRequestForm : public Form
+class RobotomyRequestForm : public AForm
 {
   private:
 	RobotomyRequestForm(void); // Private default constructor
 
   public:
-	RobotomyRequestForm(std::string const &) throw(Form::IGradeException);
+	RobotomyRequestForm(std::string const &) throw(AForm::IGradeException);
 	RobotomyRequestForm(RobotomyRequestForm const &);
 	RobotomyRequestForm &operator=(RobotomyRequestForm const &);
 	virtual ~RobotomyRequestForm(void);

@@ -40,10 +40,10 @@ bool test_intern_methods(void)
 {
 	Intern intern;
 
-	Form *p = intern.makeForm("Presidential pardon", "test");
-	Form *s = intern.makeForm("Shrubbery creation", "test");
-	Form *r = intern.makeForm("Robotomy request", "test");
-	Form *n = intern.makeForm("null", "test");
+	AForm *p = intern.makeAForm("Presidential pardon", "test");
+	AForm *s = intern.makeAForm("Shrubbery creation", "test");
+	AForm *r = intern.makeAForm("Robotomy request", "test");
+	AForm *n = intern.makeAForm("null", "test");
 
 	std::cout << *p << std::endl;
 	std::cout << *s << std::endl;

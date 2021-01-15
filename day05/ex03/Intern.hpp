@@ -25,7 +25,7 @@ class Intern
 	~Intern(void);
 
 	// Methods
-	Form *makeForm(std::string const &, std::string const &) const;
+	AForm *makeAForm(std::string const &, std::string const &) const;
 };
 
 #endif

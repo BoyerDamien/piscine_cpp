@@ -14,15 +14,15 @@
 #define SHRUBBERYCREATION_H
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class ShrubberyCreationForm : public Form
+class ShrubberyCreationForm : public AForm
 {
   private:
 	ShrubberyCreationForm(void); // Private default constructor
 
   public:
-	ShrubberyCreationForm(std::string const &) throw(Form::IGradeException);
+	ShrubberyCreationForm(std::string const &) throw(AForm::IGradeException);
 	ShrubberyCreationForm(ShrubberyCreationForm const &);
 	ShrubberyCreationForm &operator=(ShrubberyCreationForm const &);
 	virtual ~ShrubberyCreationForm(void);

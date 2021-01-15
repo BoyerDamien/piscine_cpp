@@ -18,14 +18,14 @@
  *****************************************************************************/
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const &target) throw(
-	Form::IGradeException)
-	: Form("Robotomy", target, 72, 45)
+	AForm::IGradeException)
+	: AForm("Robotomy", target, 72, 45)
 {
 	std::srand(time(NULL));
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &other)
-	: Form(other)
+	: AForm(other)
 {
 	std::srand(time(NULL));
 }

@@ -12,12 +12,12 @@
 
 #ifndef BUREAUCRAT_H
 #define BUREAUCRAT_H
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <exception>
 #include <iostream>
 #include <ostream>
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -40,8 +40,8 @@ class Bureaucrat
 	// Methods
 	void intcrement(void);
 	void decrement(void);
-	void signForm(Form &);
-	void executeForm(Form const &form) const;
+	void signAForm(AForm &);
+	void executeAForm(AForm const &form) const;
 
 	// Nested exception
 	class IGradeException : public std::exception

@@ -44,17 +44,17 @@ Intern::~Intern()
 /******************************************************************************
  *			Static functions
  *****************************************************************************/
-static Form *makeShrubbery(std::string const &target)
+static AForm *makeShrubbery(std::string const &target)
 {
 	return new ShrubberyCreationForm(target);
 }
 
-static Form *makePardon(std::string const &target)
+static AForm *makePardon(std::string const &target)
 {
 	return new PresidentialPardonForm(target);
 }
 
-static Form *makeRobotomy(std::string const &target)
+static AForm *makeRobotomy(std::string const &target)
 {
 	return new RobotomyRequestForm(target);
 }
@@ -62,11 +62,11 @@ static Form *makeRobotomy(std::string const &target)
 /******************************************************************************
  *				Methods
  *****************************************************************************/
-Form *Intern::makeForm(std::string const &type, std::string const &target) const
+AForm *Intern::makeAForm(std::string const &type, std::string const &target) const
 {
 	static std::string const TYPES[] = {
 		"Robotomy request", "Presidential pardon", "Shrubbery creation"};
-	static Form *(*ACTIONS[])(std::string const &) = {makeRobotomy, makePardon,
+	static AForm *(*ACTIONS[])(std::string const &) = {makeRobotomy, makePardon,
 													  makeShrubbery};
 	for (int i = 0; i < 3; i++)
 	{
@@ -76,6 +76,6 @@ Form *Intern::makeForm(std::string const &type, std::string const &target) const
 			return ACTIONS[i](target);
 		}
 	}
-	std::cerr << "Form " << type << " unknown !" << std::endl;
+	std::cerr << "AForm " << type << " unknown !" << std::endl;
 	return NULL;
 }

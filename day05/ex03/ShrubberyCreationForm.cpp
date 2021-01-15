@@ -19,13 +19,13 @@
  *****************************************************************************/
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string const &target) throw(
-	Form::IGradeException)
-	: Form("Shrubbery", target, 145, 137)
+	AForm::IGradeException)
+	: AForm("Shrubbery", target, 145, 137)
 {
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other)
-	: Form(other)
+	: AForm(other)
 {
 }
 

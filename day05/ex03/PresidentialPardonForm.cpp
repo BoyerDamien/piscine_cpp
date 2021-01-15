@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <iostream>
 
 /******************************************************************************
@@ -19,14 +19,14 @@
  *****************************************************************************/
 
 PresidentialPardonForm::PresidentialPardonForm(std::string const &target) throw(
-	Form::IGradeException)
-	: Form("Pardon", target, 25, 5)
+	AForm::IGradeException)
+	: AForm("Pardon", target, 25, 5)
 {
 }
 
 PresidentialPardonForm::PresidentialPardonForm(
 	PresidentialPardonForm const &other)
-	: Form(other)
+	: AForm(other)
 {
 }
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 15:15:37 by root              #+#    #+#             */
-/*   Updated: 2021/01/15 11:24:04 by root             ###   ########.fr       */
+/*   Updated: 2021/01/14 11:43:25 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
   private:
 	std::string const _name;
@@ -29,14 +29,14 @@ class Form
 	int const _gradeToSign;
 	int const _gradeToExec;
 
-	Form(); // Private default constructor
+	AForm(); // Private default constructor
 
   public:
-	Form(std::string const &, std::string const &, int const,
-		 int const) throw(Form::IGradeException);
-	Form(Form const &);
-	Form &operator=(Form const &);
-	virtual ~Form();
+	AForm(std::string const &, std::string const &, int const,
+		 int const) throw(AForm::IGradeException);
+	AForm(AForm const &);
+	AForm &operator=(AForm const &);
+	~AForm();
 
 	// Getters
 	std::string getName() const;
@@ -46,7 +46,7 @@ class Form
 	int getGradeToExec() const;
 
 	// Methods
-	void beSigned(Bureaucrat const &) throw(Form::IGradeException);
+	void beSigned(Bureaucrat const &) throw(AForm::IGradeException);
 	void execute(Bureaucrat const &executor) const throw(std::exception);
 	virtual void doExec(Bureaucrat const &executor) const = 0;
 
@@ -76,7 +76,7 @@ class Form
 	};
 };
 
-bool operator==(Form const &, Form const &);
-std::ostream &operator<<(std::ostream &, Form const &);
+bool operator==(AForm const &, AForm const &);
+std::ostream &operator<<(std::ostream &, AForm const &);
 
 #endif

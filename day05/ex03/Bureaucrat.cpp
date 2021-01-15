@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <exception>
 #include <string>
 
@@ -79,21 +79,21 @@ void Bureaucrat::decrement()
 	}
 }
 
-void Bureaucrat::signForm(Form &f)
+void Bureaucrat::signAForm(AForm &f)
 {
 	try
 	{
 		f.beSigned(*this);
 		std::cout << this->_name << " signs " << f.getName() << std::endl;
 	}
-	catch (Form::GradeTooLowException &e)
+	catch (AForm::GradeTooLowException &e)
 	{
 		std::cout << this->getName() << " cant sign " << f.getName()
 				  << " because " << e.what() << std::endl;
 	}
 }
 
-void Bureaucrat::executeForm(Form const &form) const
+void Bureaucrat::executeAForm(AForm const &form) const
 {
 	try
 	{
