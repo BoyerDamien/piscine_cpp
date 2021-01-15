@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 09:33:47 by root              #+#    #+#             */
-/*   Updated: 2021/01/14 11:32:47 by root             ###   ########.fr       */
+/*   Updated: 2021/01/15 11:23:45 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class RobotomyRequestForm : public Form
 	RobotomyRequestForm(std::string const &) throw(Form::IGradeException);
 	RobotomyRequestForm(RobotomyRequestForm const &);
 	RobotomyRequestForm &operator=(RobotomyRequestForm const &);
-	~RobotomyRequestForm(void);
+	virtual ~RobotomyRequestForm(void);
 
 	// Methods
 	void doExec(Bureaucrat const &executor) const;

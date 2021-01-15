@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 09:56:35 by root              #+#    #+#             */
-/*   Updated: 2021/01/14 11:33:04 by root             ###   ########.fr       */
+/*   Updated: 2021/01/15 11:23:52 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class PresidentialPardonForm : public Form
 	PresidentialPardonForm(std::string const &) throw(Form::IGradeException);
 	PresidentialPardonForm(PresidentialPardonForm const &);
 	PresidentialPardonForm &operator=(PresidentialPardonForm const &);
-	~PresidentialPardonForm(void);
+	virtual ~PresidentialPardonForm(void);
 
 	void doExec(Bureaucrat const &executor) const;
 };

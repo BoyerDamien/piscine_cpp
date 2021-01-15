@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 15:15:37 by root              #+#    #+#             */
-/*   Updated: 2021/01/14 11:43:25 by root             ###   ########.fr       */
+/*   Updated: 2021/01/15 11:24:04 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Form
 		 int const) throw(Form::IGradeException);
 	Form(Form const &);
 	Form &operator=(Form const &);
-	~Form();
+	virtual ~Form();
 
 	// Getters
 	std::string getName() const;

@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 16:31:42 by root              #+#    #+#             */
-/*   Updated: 2021/01/14 11:32:03 by root             ###   ########.fr       */
+/*   Updated: 2021/01/15 11:23:26 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ShrubberyCreationForm : public Form
 	ShrubberyCreationForm(std::string const &) throw(Form::IGradeException);
 	ShrubberyCreationForm(ShrubberyCreationForm const &);
 	ShrubberyCreationForm &operator=(ShrubberyCreationForm const &);
-	~ShrubberyCreationForm(void);
+	virtual ~ShrubberyCreationForm(void);
 
 	void doExec(Bureaucrat const &executor) const;
 };

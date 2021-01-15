@@ -6,11 +6,15 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 09:12:50 by root              #+#    #+#             */
-/*   Updated: 2021/01/15 09:30:33 by root             ###   ########.fr       */
+/*   Updated: 2021/01/15 11:19:52 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include <iostream>
 
 /******************************************************************************
  *			Constructors
@@ -38,8 +42,40 @@ Intern::~Intern()
 }
 
 /******************************************************************************
+ *			Static functions
+ *****************************************************************************/
+static Form *makeShrubbery(std::string const &target)
+{
+	return new ShrubberyCreationForm(target);
+}
+
+static Form *makePardon(std::string const &target)
+{
+	return new PresidentialPardonForm(target);
+}
+
+static Form *makeRobotomy(std::string const &target)
+{
+	return new RobotomyRequestForm(target);
+}
+
+/******************************************************************************
  *				Methods
  *****************************************************************************/
-Form *Intern::makeForm(std::string const &name, std::string const &target) const
+Form *Intern::makeForm(std::string const &type, std::string const &target) const
 {
+	static std::string const TYPES[] = {
+		"Robotomy request", "Presidential pardon", "Shrubbery creation"};
+	static Form *(*ACTIONS[])(std::string const &) = {makeRobotomy, makePardon,
+													  makeShrubbery};
+	for (int i = 0; i < 3; i++)
+	{
+		if (type == TYPES[i])
+		{
+			std::cout << "Intern creates " << type << std::endl;
+			return ACTIONS[i](target);
+		}
+	}
+	std::cerr << "Form " << type << " unknown !" << std::endl;
+	return NULL;
 }
