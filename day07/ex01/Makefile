@@ -6,24 +6,23 @@
 #    By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/25 12:26:37 by dboyer            #+#    #+#              #
-#    Updated: 2021/01/16 14:56:45 by root             ###   ########.fr        #
+#    Updated: 2021/01/16 15:14:47 by root             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = template_test
+NAME = iter
 
 CXX = clang++
 
-CXXFLAGS = -Wall -Wextra -Werror -O3 -std=c++98 -I ./includes
+CXXFLAGS = -Wall -Wextra -Werror -O3 -std=c++98
 
-MAIN = ./srcs/main.cpp
+MAIN = ./main.cpp
 
 MAIN_OBJS = $(MAIN:.cpp=.o)
 
-HEADERS = ./includes/whatever.hpp
+HEADERS = ./iter.hpp
 
 RM = rm -rf 
-
 
 %.o: %.cpp ${HEADERS}
 	$(CXX) $(CXXFLAGS) -c $< -o $@
