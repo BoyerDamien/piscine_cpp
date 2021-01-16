@@ -6,7 +6,7 @@
 /*   By: root <dboyer@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 15:20:02 by root              #+#    #+#             */
-/*   Updated: 2021/01/15 19:34:14 by root             ###   ########.fr       */
+/*   Updated: 2021/01/16 09:09:59 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ static bool isFloat(std::string const &str)
 {
 	float result;
 	std::istringstream ss(str);
-	// ss.flags()
 	ss >> std::noskipws >> result;
-	return !ss.fail();
+	return !ss.fail() &&
+		   ((str[ss.tellg()] == 'f' && ss.rdbuf()->in_avail() == 1) ||
+			ss.eof());
 }
 
 static float convertToFloat(std::string const &str)
@@ -121,8 +122,8 @@ std::string Scalar::toFloat() const
 		return "float: nanf";
 	}
 	std::stringstream ss;
-	ss << "float: " << this->_value;
-	std::cout << this->_value << std::endl;
+	ss << "float: " << std::fixed << std::setprecision(1) << this->_value
+	   << "f";
 	return ss.str();
 }
 
@@ -137,7 +138,8 @@ std::string Scalar::toDouble() const
 		return "double: nan";
 	}
 	std::stringstream ss;
-	ss << "double: " << static_cast<double>(this->_value);
+	ss << "double: " << std::fixed << std::setprecision(1)
+	   << static_cast<double>(this->_value);
 	return ss.str();
 }
 
