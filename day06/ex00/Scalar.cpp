@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Scalar.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dboyer <dboyer@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dboyer <dboyer@student.42.fr>                +#+  +:+       +#+ */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/15 15:20:02 by dboyer              #+#    #+#             */
-/*   Updated: 2021/01/16 09:09:59 by dboyer             ###   ########.fr       */
+/*   Created: 2021/01/15 15:20:02 by dboyer              #+#    #+# */
+/*   Updated: 2021/01/23 15:26:49 by dess             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 #include <exception>
 #include <iomanip>
 #include <iostream>
+#include <limits.h>
 #include <ostream>
 #include <sstream>
+
 /******************************************************************************
  *			Static functions
  ******************************************************************************/
@@ -80,6 +82,12 @@ bool Scalar::_isString(void) const
 	return (this->_input.length() > 1 && !this->_isfloat && !this->_isNan());
 }
 
+bool Scalar::_isInf(void) const
+{
+	return this->_input == "inf" || this->_input == "-inf" ||
+		   this->_input == "-inff" || this->_input == "inff";
+}
+
 /******************************************************************************
  *			Methods
  *****************************************************************************/
@@ -92,6 +100,10 @@ std::string Scalar::toChar(void) const
 		return ret + "Impossible";
 	}
 	char result = static_cast<char>(this->_value);
+	if (result > CHAR_MAX || result < CHAR_MIN)
+	{
+		return ret + "Impossible";
+	}
 	if (!std::isprint(result))
 	{
 		return ret + "Non displayable";
@@ -102,43 +114,60 @@ std::string Scalar::toChar(void) const
 
 std::string Scalar::toInt() const
 {
-	if (this->_isNan() || this->_isString())
+	std::string ret = "int: ";
+	int casted = static_cast<int>(this->_value);
+
+	if (this->_isInf())
 	{
-		return "int: Impossible";
+		return ret + "inf";
+	}
+	if (this->_isNan() || this->_isString() || casted >= INT_MAX ||
+		casted <= INT_MIN)
+	{
+		return ret + "Impossible";
 	}
 	std::stringstream ss;
-	ss << "int: " << static_cast<int>(this->_value);
+	ss << ret << casted;
 	return ss.str();
 }
 
 std::string Scalar::toFloat() const
 {
+	std::string ret = "float: ";
+	if (this->_isInf())
+	{
+		return this->_input[0] == '-' ? ret + "-inff" : ret + "inff";
+	}
 	if (this->_isString())
 	{
-		return "float: Impossible";
+		return ret + "Impossible";
 	}
 	if (this->_isNan())
 	{
-		return "float: nanf";
+		return ret + "nanf";
 	}
 	std::stringstream ss;
-	ss << "float: " << std::fixed << std::setprecision(1) << this->_value
-	   << "f";
+	ss << ret << std::fixed << std::setprecision(1) << this->_value << "f";
 	return ss.str();
 }
 
 std::string Scalar::toDouble() const
 {
+	std::string ret = "double: ";
+	if (this->_isInf())
+	{
+		return this->_input[0] == '-' ? ret + "-inf" : ret + "inf";
+	}
 	if (this->_isString())
 	{
-		return "double: Impossible";
+		return ret + "Impossible";
 	}
 	if (this->_isNan())
 	{
-		return "double: nan";
+		return ret + "nan";
 	}
 	std::stringstream ss;
-	ss << "double: " << std::fixed << std::setprecision(1)
+	ss << ret << std::fixed << std::setprecision(1)
 	   << static_cast<double>(this->_value);
 	return ss.str();
 }

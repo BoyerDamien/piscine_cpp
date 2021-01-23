@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dboyer <dboyer@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dboyer <dboyer@student.42.fr>                +#+  +:+       +#+ */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/16 09:27:53 by dboyer              #+#    #+#             */
-/*   Updated: 2021/01/16 09:45:11 by dboyer             ###   ########.fr       */
+/*   Created: 2021/01/16 09:27:53 by dboyer              #+#    #+# */
+/*   Updated: 2021/01/23 15:35:07 by dess             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ void *serialize(void)
 		data->s2.push_back(ALNUM[rand() % ALNUM.length()]);
 	}
 	data->n = rand() % 10;
+	std::cout << "s1: " << data->s1 << "\nn: " << data->n
+			  << "\ns2: " << data->s2 << std::endl
+			  << std::endl;
 	return reinterpret_cast<void *>(data);
 }
 

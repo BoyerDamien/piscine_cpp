@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Scalar.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dboyer <dboyer@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dboyer <dboyer@student.42.fr>                +#+  +:+       +#+ */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/15 15:01:32 by dboyer              #+#    #+#             */
-/*   Updated: 2021/01/15 19:03:38 by dboyer             ###   ########.fr       */
+/*   Created: 2021/01/15 15:01:32 by dboyer              #+#    #+# */
+/*   Updated: 2021/01/23 14:53:03 by dess             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ class Scalar
 	// Checkers
 	bool _isNan(void) const;
 	bool _isString(void) const;
+	bool _isInf(void) const;
 
 	// Getters
 	std::string getInput(void) const;
