@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dboyer <dboyer@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/16 14:58:11 by dboyer              #+#    #+#             */
-/*   Updated: 2021/01/16 15:11:42 by dboyer             ###   ########.fr       */
+/*   Created: 2021/01/24 13:26:38 by dboyer            #+#    #+#             */
+/*   Updated: 2021/01/24 13:26:43 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <iostream>
 
 template <typename T> void iter(T *arr, size_t len, void (*fun)(T))

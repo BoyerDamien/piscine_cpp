@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dboyer <dboyer@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dboyer <dboyer@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/16 13:33:49 by dboyer              #+#    #+#             */
-/*   Updated: 2021/01/16 14:56:59 by dboyer             ###   ########.fr       */
+/*   Created: 2021/01/24 13:25:23 by dboyer            #+#    #+#             */
+/*   Updated: 2021/01/24 13:25:29 by dboyer           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/whatever.hpp"
+#include "whatever.hpp"
 #include <iostream>
 #include <string>
 
